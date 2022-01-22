@@ -8,8 +8,8 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - vuetify',
-    title: 'vuetify',
+    titleTemplate: '%s - Dimitri',
+    title: 'Dimitri Lesas',
     htmlAttrs: {
       lang: 'en'
     },
@@ -73,7 +73,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/localtunnel'
+    // '@nuxtjs/localtunnel'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

@@ -54,6 +54,7 @@
 </template>
 
 <script>
+/* eslint-disable camelcase */
     export default {
         data() {
             return {
@@ -112,8 +113,48 @@
                     this.$vuetify.theme.dark = true 
                 }, 0);
             }
-            // eslint-disable-next-line no-unused-vars
-            
+            setTimeout(() => { 
+                const check = this.$cookies.isKey("primarybase")
+                const primarybase = this.$cookies.get("primarybase")
+                if (check) {
+                    this.$vuetify.theme.currentTheme.primary.base = primarybase
+                    this.$vuetify.theme.themes.dark.primary.base = primarybase
+                    this.$vuetify.theme.themes.light.primary.base = primarybase
+                    for (let index = 1; index < 6; index++) {
+                        const lighten = this.$cookies.get(`primaryligten${index}`)
+                        const darken = this.$cookies.get(`primarydarken${index}`)
+                        this.$vuetify.theme.themes.dark.primary[`lighten${index}`] = lighten
+                        this.$vuetify.theme.themes.light.primary[`lighten${index}`] = lighten
+                        this.$vuetify.theme.themes.dark.primary[`darken${index}`] = darken
+                        this.$vuetify.theme.themes.light.primary[`darken${index}`] = darken
+                        this.$vuetify.theme.currentTheme.primary[`lighten${index}`] = lighten
+                        this.$vuetify.theme.currentTheme.primary[`darken${index}`] = darken             
+                    }
+                    const secondarybase = this.$cookies.get("secondarybase")
+                    this.$vuetify.theme.currentTheme.secondary = {}
+                    this.$vuetify.theme.currentTheme.secondary.base = secondarybase
+                    this.$vuetify.theme.themes.dark.secondary.base = secondarybase
+                    this.$vuetify.theme.themes.light.secondary.base = secondarybase
+                    for (let index = 1; index < 6; index++) {
+                        const lighten = this.$cookies.get(`secondaryligten${index}`)
+                        const darken = this.$cookies.get(`secondarydarken${index}`)
+                        this.$vuetify.theme.themes.dark.secondary[`lighten${index}`] = lighten
+                        this.$vuetify.theme.themes.light.secondary[`lighten${index}`] = lighten
+                        this.$vuetify.theme.themes.dark.secondary[`darken${index}`] = darken
+                        this.$vuetify.theme.themes.light.secondary[`darken${index}`] = darken
+                        this.$vuetify.theme.currentTheme.secondary[`lighten${index}`] = lighten
+                        this.$vuetify.theme.currentTheme.secondary[`darken${index}`] = darken
+                    }
+                    const analogic = this.$cookies.get(`analogic`)
+                    this.$vuetify.theme.currentTheme.analogic = analogic
+                    this.$vuetify.theme.themes.light.analogic = analogic
+                    this.$vuetify.theme.themes.dark.analogic = analogic
+                    const analogiccomplement = this.$cookies.get(`analogic_complement`)
+                    this.$vuetify.theme.currentTheme.analogic_complement = analogiccomplement
+                    this.$vuetify.theme.themes.light.analogic_complement = analogiccomplement
+                    this.$vuetify.theme.themes.dark.analogic_complement = analogiccomplement
+                }
+            }, 500);
         },
         methods: {
             closeside() {

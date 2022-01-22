@@ -24,6 +24,7 @@
                     this.$vuetify.theme.currentTheme.primary.base = color.hex
                     this.$vuetify.theme.themes.dark.primary.base = color.hex
                     this.$vuetify.theme.themes.light.primary.base = color.hex
+                    console.log(color.hex)
                     this.$cookies.set("primarybase", color.hex, "30D")
                     for (let index = 1; index < 6; index++) {
                         const lighten = this.pSBC((0.1 * index), color.hex)
@@ -54,8 +55,8 @@
                             this.$vuetify.theme.themes.light.secondary[`darken${index}`] = darken
                             this.$vuetify.theme.currentTheme.secondary[`lighten${index}`] = lighten
                             this.$vuetify.theme.currentTheme.secondary[`darken${index}`] = darken
-                            this.$cookies.set(`primaryligten${index}`, lighten, "30D")
-                            this.$cookies.set(`primarydarken${index}`, darken, "30D")
+                            this.$cookies.set(`secondaryligten${index}`, lighten, "30D")
+                            this.$cookies.set(`secondarydarken${index}`, darken, "30D")
                         }
                     })
                     const analogic = []
