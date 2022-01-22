@@ -1,0 +1,44 @@
+{
+    "Data Analysis" : {
+        "Brief" : "With over 3 years experience in data specific fields and the proficient use of advanced technologies & tools; I am able to analyse large amounts of data in a timely manner. If the analysis task is a regular one, I would automate it and save time.",
+        "value" : 83,
+        "icon" : "Languages & Frameworks/DataAnalysis.gif",
+        "dark" : "Languages & Frameworks/DataAnalysis_Dark.gif"
+    },
+    "Data Visualisation" : {
+        "Brief" : "Data Visualisation goes hand in hand with data analysis, a great analyst who is not able to translate his findings into usefull business stories is a waste; as such I also have over 3 years experience with data visualisation and am able to use various tools to make the task easier.",
+        "value" : 78,
+        "icon" : "Languages & Frameworks/DataVisualisation.gif",
+        "dark" : "Languages & Frameworks/DataVisualisation_Dark.gif"
+    },
+    "Machine/Deep Learning" : {
+        "Brief" : "The field of Machine/Deep Learning has recently exploded (since 2012 when the paper on AlexNet CNN by Alex Krizhevsky was released), I joined the trend slightly late; I currently have 1 years worth of experience creating various statistical and deep learning models. This is a field I would enjoy having more exposure too.",
+        "value" : 64,
+        "icon" : "Languages & Frameworks/AI.gif",
+        "dark" : "Languages & Frameworks/AI_Dark.gif"
+    },
+    "Backend Engineering" : {
+        "Brief" : "Whilst I only have minimal experience making Back-ends it mainly relies on python knowledge (depending on which framework you use) which I have over 3 years experience of, that and the knowledge of how the internet/api's work thus I'm finding it easy to pick up.",
+        "value" : 72,
+        "icon" : "Languages & Frameworks/BackEnd.gif",
+        "dark" : "Languages & Frameworks/BackEnd_Dark.gif"
+    },
+    "Frontend Development" : {
+        "Brief" : "Front-End Development is another field I currently have somewhat minimal experience in, however I hope that this website I created from scratch with 0 previous experience is enough of an example to justify my skills in the field and my will to learn.",
+        "value" : 70,
+        "icon" : "Languages & Frameworks/FrontEnd.gif",
+        "dark" : "Languages & Frameworks/FrontEnd_Dark.gif"
+    },
+    "System/Cloud Engineering" : {
+        "Brief" : "lol",
+        "value" : 62,
+        "icon" : "Languages & Frameworks/Cloud.gif",
+        "dark" : "Languages & Frameworks/Cloud_Dark.gif"
+    },
+    "Automation" : {
+        "Brief" : "brief",
+        "value" : 73,
+        "icon" : "Languages & Frameworks/Automation.gif",
+        "dark" : "Languages & Frameworks/Automation_Dark.gif"
+    }
+}

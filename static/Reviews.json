@@ -1,0 +1,40 @@
+{
+    "Mum" : {
+        "name" : "Mum",
+        "review" : "Taught me how to copy & paste, highly recommend.",
+        "color" : "var(--v-primary-base)",
+        "color2" : "rgba(0,0,0,.4)",
+        "job" : ""
+    },
+    "Me" : {
+        "name" : "Dimitri Lesas",
+        "review" : "21st century problems require a modern 21st century solution. Dimitri might just be that solution.",
+        "color" : "var(--v-secondary-base)",
+        "color2" : "var(--v-primary-base)",
+        "job" : "A philanthropist",
+        "link" : "https://www.linkedin.com/in/dimitri-lesas-analytics/"
+    },
+    "Victoria" : {
+        "name" : "Victoria Leabeater",
+        "review" : "Great Boyfriend, I don't deserve him but neither do you.",
+        "color" : "cyan",
+        "color2" : "purple",
+        "job" : "",
+        "link" : "https://www.linkedin.com/in/victoria-leabeater-b2b05b159/"
+    },
+    "Granny" : {
+        "name" : "Granny",
+        "review" : "",
+        "color"  : "rgba(0,0,0,.4)",
+        "color2" : "",
+        "job" : ""
+    },
+    "Shia" : {
+        "name" : "Shia LaBoeuf",
+        "review" : "Don't let your dreams be dreams, Yesterday you said tomorrow, So Just do it.",
+        "color" : "var(--v-primary-base)",
+        "color2" : "var(--v-secondary-base)",
+        "job" : "The Man",
+        "link" : "https://www.youtube.com/watch?v=ZXsQAXx_ao0"
+    }    
+}
