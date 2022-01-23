@@ -47,22 +47,15 @@
         height="200"
     >
         <v-container class="" fluid style="width:100%; height: 100%">
-            <v-row no-gutters style="height: 100%; width: 100%;" justify="space-between">
+            <v-row no-gutters style="height: 100%; width: 100%;" justify="center">
                 <v-row class="pt-2" justify="space-around">
                     <v-col>
-                        <v-spacer>
-
-                        </v-spacer>
-                    </v-col>
-                    <v-col>
+                        <span>
                         <v-icon color="primary">
                             mdi-filter
                         </v-icon>
                         <v-btn outlined rounded style="border-radius: 28px;" @click="SelectUnselect">{{ btn }}</v-btn>
-                    </v-col>
-                    <v-col>
-                        <v-spacer>
-                        </v-spacer>
+                        </span>
                     </v-col>
                 </v-row>
                 <v-row>

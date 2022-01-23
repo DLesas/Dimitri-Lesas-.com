@@ -30,7 +30,7 @@
                 // eslint-disable-next-line no-unused-vars
                 const {am5, am5hierarchy, am5themes_Animated} = this.$am5();;
                 const am5map = require("@amcharts/amcharts5/map")
-                const WorldHigh = require("@amcharts/amcharts5-geodata/region/world/europeHigh").default
+                const WorldHigh = require("@amcharts/amcharts5-geodata/worldHigh").default // "@amcharts/amcharts5-geodata/region/world/europeHigh"
                 this.el = document.getElementById("map")
                 const root = am5.Root.new(this.el);
                 root.setThemes([

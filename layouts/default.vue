@@ -153,6 +153,10 @@
                     this.$vuetify.theme.currentTheme.analogic_complement = analogiccomplement
                     this.$vuetify.theme.themes.light.analogic_complement = analogiccomplement
                     this.$vuetify.theme.themes.dark.analogic_complement = analogiccomplement
+                    const wave = this.$cookies.get(`wave`)
+                    this.$vuetify.theme.currentTheme.wave = wave
+                    this.$vuetify.theme.themes.light.wave = wave
+                    this.$vuetify.theme.themes.dark.wave = wave
                 }
             }, 500);
         },

@@ -1,6 +1,5 @@
 /* eslint-disable one-var */
 <template>
-    <!-- eslint-disable vue/valid-v-on -->
     <v-color-picker
         v-model="color"
         hide-inputs
@@ -24,7 +23,6 @@
                     this.$vuetify.theme.currentTheme.primary.base = color.hex
                     this.$vuetify.theme.themes.dark.primary.base = color.hex
                     this.$vuetify.theme.themes.light.primary.base = color.hex
-                    console.log(color.hex)
                     this.$cookies.set("primarybase", color.hex, "30D")
                     for (let index = 1; index < 6; index++) {
                         const lighten = this.pSBC((0.1 * index), color.hex)
@@ -37,7 +35,6 @@
                         this.$vuetify.theme.currentTheme.primary[`darken${index}`] = darken
                         this.$cookies.set(`primaryligten${index}`, lighten, "30D")
                         this.$cookies.set(`primarydarken${index}`, darken, "30D")
-
                     }
                     this.$axios.$get(`https://www.thecolorapi.com/scheme?hex=${color.hex.replace("#", "")}&mode=complement&count=2`)
                     .then(res => {
@@ -81,6 +78,17 @@
                         this.$vuetify.theme.themes.dark.analogic_complement = analogiccomplement
                         this.$cookies.set(`analogic_complement`, JSON.stringify(analogiccomplement), "30D")
                     })
+                    const quad = []
+                    this.$axios.$get(`https://www.thecolorapi.com/scheme?hex=${color.hex.replace("#", "")}&mode=quad&count=4`)
+                    .then(res => {
+                        for (color in res.colors) {
+                            quad.push('0x' + res.colors[color].hex.clean)
+                        }
+                        this.$vuetify.theme.currentTheme.wave = quad
+                        this.$vuetify.theme.themes.light.wave = quad
+                        this.$vuetify.theme.themes.dark.wave = quad
+                        this.$cookies.set(`wave`, JSON.stringify(quad), "30D")
+                    })
                 }
                 this.count++        
             },
@@ -91,7 +99,6 @@
                 */
 
                 /* eslint-disable */
-
                 let r,g,b,P,f,t,h,i=parseInt,m=Math.round,a=typeof(c1)==="string";
                 if(typeof(p)!=="number"||p<-1||p>1||typeof(c0)!=="string"||(c0[0]!=='r'&&c0[0]!=='#')||(c1&&!a))return null;
                 if(!this.pSBCr)this.pSBCr=(d)=>{

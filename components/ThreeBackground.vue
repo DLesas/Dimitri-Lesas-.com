@@ -33,8 +33,8 @@
         }
     },
     computed: {
-        color() {
-            return this.$vuetify.theme.currentTheme.primary.base
+        wave() {
+            return this.$vuetify.theme.currentTheme.wave
         },
         dark() {
             return this.$vuetify.theme.dark
@@ -44,8 +44,11 @@
         // }
     },
     watch: {
-        color(newValue) { 
-            this.changecolors(newValue)
+        wave: {
+            deep: true,
+            handler(newValue) {
+                this.changecolors(newValue)
+            }
         }
     },
     mounted() {
@@ -58,7 +61,6 @@
         // const vue = this
         // const chroma = this.$chroma().chroma;
 
-        
             this.conf = {
                 fov: 75,
                 cameraZ: 100,
@@ -66,10 +68,10 @@
                 zCoef: 10,
                 lightIntensity: 0.9,
                 ambientColor: 0x000000,
-                light1Color: 0x0E09DC,
-                light2Color: 0x1CD1E1,
-                light3Color: 0x18C02C,
-                light4Color: 0xee3bcf,
+                light1Color: this.$vuetify.theme.currentTheme.wave[0],
+                light2Color: this.$vuetify.theme.currentTheme.wave[1],
+                light3Color: this.$vuetify.theme.currentTheme.wave[2],
+                light4Color: this.$vuetify.theme.currentTheme.wave[3],
                 el: document.getElementById("background")
             };
 
@@ -214,21 +216,16 @@
     },
     methods: {
         changecolors(value) {
-            this.$axios.$get(`https://www.thecolorapi.com/scheme?hex=${value.replace("#", "")}&mode=analogic&count=4`)
-            .then(res => {
-                this.light1.color.setStyle(res.colors[0].hex.value)
-                this.light2.color.setStyle(res.colors[1].hex.value)
-                this.light3.color.setStyle(res.colors[2].hex.value)
-                this.light4.color.setStyle(res.colors[3].hex.value)
-            })
+            if (value !== undefined){
+                for (let index = 0; index < value.length; index++) {
+                    const color = new this.THREE.Color(parseInt(value[index], 16))
+                    this[`light${index + 1}`].color = color
+                }
+            }
         },
         updateSize() {
             this.width = window.innerWidth < window.outerWidth && window.innerWidth !== undefined? Window.innerWidth : window.outerWidth
-            this.height = window.innerHeight < window.outerHeight && window.innerHeight!== undefined ? window.innerHeight : window.outerHeight;
-
-            console.log("changed!")
-            console.log(this.width)
-            console.log(this.height)
+            this.height = window.innerHeight < window.outerHeight && window.innerHeight !== undefined ? window.innerHeight : window.outerHeight;
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height);
                 this.camera.aspect = this.width / this.height;
@@ -238,12 +235,9 @@
                 this.wHeight = wsize[1];
             }
             if (this.width === undefined || this.height === undefined && this.counter < 10){
-                
-                this.updateSize()
-                this.counter ++
-            } else
-            {
-                this.counter = 0
+                setTimeout(() => {
+                    this.updateSize()
+                }, 500); 
             }
         },
         getRendererSize() {

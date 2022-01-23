@@ -91,14 +91,16 @@ export default {
             secondary : colors.deepOrange,
             accent: colors.white,
             strongaccent: colors.blue.lighten5,
-            ripple: colors.indigo.accent4
+            ripple: colors.indigo.accent4,
+            wave: [0x0E09DC, 0x1CD1E1, 0x18C02C, 0xee3bcf]
         },
         light: {
             primary: colors.lightBlue,
             secondary : colors.deepOrange,
             accent: colors.white,
             strongaccent: colors.blue.lighten5,
-            ripple: colors.indigo.accent4
+            ripple: colors.indigo.accent4,
+            wave: [0x0E09DC, 0x1CD1E1, 0x18C02C, 0xee3bcf]
         }
       }
     }
