@@ -141,7 +141,7 @@ import Font from '~/static/Fonts/Fira Sans Medium_Regular.json'
 				this.renderer.setSize( window.innerWidth, window.innerHeight );
                 this.onWindowResize()
 				window.addEventListener( 'resize', this.onWindowResize );
-                window.addEventListener( 'touchend', this.onWindowMouseMove )
+                // window.addEventListener( 'touchend', this.onWindowMouseMove )
                 window.addEventListener( 'mousemove', this.onWindowMouseMove );
 
             },

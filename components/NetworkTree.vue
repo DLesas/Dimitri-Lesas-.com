@@ -33,7 +33,7 @@
                 ref: undefined,
                 data: this.networkdata,
                 selectedchild: this.selected,
-                resizing: false
+                resizing: 0
             }
         },
         computed: {
@@ -130,12 +130,12 @@
             this.$emit('HoverOnNode', eventname, listcolor)
           },
           resize() {
-            if (this.resizing === false) {
-                this.resizing = true
+            if (this.resizing < 3 ) {
+                this.resizing ++
                 setTimeout(() => {  
                     const element = document.getElementById("chartdiv")
                     this.heighttouse = window.innerHeight - element.getBoundingClientRect().y - 20
-                    this.resizing = false
+                    this.resizing = 0
                 }, 500);
             }
         },

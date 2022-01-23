@@ -15,8 +15,6 @@
 - need to fix vue typer not wrapping words properly on smaller screens [Hard, 2 Hours]
 - Make Notifications, one to introduce changing colors, another one to alert mobile users that it is primary designed for larger screens and one more to invite people to add a review [Hard, 2 1/2 Hours]
 - need to add analogic and analogic-complement colors by default [Easy, 30 mins]
-- need to add a check for color cookies on layout mounted [Easy, 30 mins]
 - Make Resume downloadable [Easy, 1 hour]
-- for threejs background Look to pull color data from cookie (on both on the mounted function and on the watch function) rather than making another api call [Easy, 30 mins]
 - add some global css to change how the scroll bar looks [Easy, 30 mins]
 - Add colour Reset button which resets colors to original [Easy, 15 mins]
