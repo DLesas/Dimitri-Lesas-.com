@@ -18,3 +18,4 @@
 - Make Resume downloadable [Easy, 1 hour]
 - add some global css to change how the scroll bar looks [Easy, 30 mins]
 - Add colour Reset button which resets colors to original [Easy, 15 mins]
+- fix index background, seems funny on weird sizez [medium, 1 hour]

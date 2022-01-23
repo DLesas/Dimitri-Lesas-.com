@@ -46,21 +46,14 @@ export default {
         dark() {
             return this.$vuetify.theme.dark
         },
-        view() {
-            return this.$vuetify.breakpoint.name
-        },
     },
     watch: {
         networkdata(newValue) {
             this.ref.data.setAll([newValue])
         },
-        view() {
-            this.resize()
-        },
     },
     mounted() {
-        window.addEventListener('resize', this.resize())
-        window.addEventListener('orientationchange', this.resize())
+        window.addEventListener('resize', this.resize)
         const element = document.getElementById('chartdiv')
         this.heighttouse =
             window.innerHeight - element.getBoundingClientRect().y - 20
@@ -136,8 +129,7 @@ export default {
     },
     beforeDestroy() {
         this.ref.dispose()
-        window.removeEventListener('resize', this.resize())
-        window.removeEventListener('orientationchange', this.resize())
+        window.removeEventListener('resize', this.resize)
     },
     destroyed() {},
     methods: {
@@ -154,11 +146,7 @@ export default {
                         element.getBoundingClientRect().y -
                         20
                     this.resizing = false
-                }, 50)
-            } else {
-                setTimeout(() => {
-                    this.resize()
-                }, 50)
+                }, 500)
             }
         },
     },

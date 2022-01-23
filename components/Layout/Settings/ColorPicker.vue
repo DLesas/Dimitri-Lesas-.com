@@ -62,6 +62,7 @@
                         for (color in res.colors) {
                             analogic.push(res.colors[color].hex.value)
                         }
+                        console.log(analogic)
                         this.$vuetify.theme.currentTheme.analogic = analogic
                         this.$vuetify.theme.themes.light.analogic = analogic
                         this.$vuetify.theme.themes.dark.analogic = analogic
@@ -73,6 +74,7 @@
                         for (color in res.colors) {
                             analogiccomplement.push(res.colors[color].hex.value)
                         }
+                        console.log(analogiccomplement)
                         this.$vuetify.theme.currentTheme.analogic_complement = analogiccomplement
                         this.$vuetify.theme.themes.light.analogic_complement = analogiccomplement
                         this.$vuetify.theme.themes.dark.analogic_complement = analogiccomplement
