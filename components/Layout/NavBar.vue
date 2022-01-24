@@ -25,7 +25,6 @@
             <LayTitle />
         </v-toolbar-title>
         <v-spacer />
-        <LaySetDayNightSwitch></LaySetDayNightSwitch>
         <v-btn v-ripple="{ class: `ripple--text` }" depressed icon>
             <v-icon color="primary"> mdi-bell </v-icon>
         </v-btn>
@@ -92,7 +91,7 @@ export default {
             }
         },
         handletitle(value) {
-            value? this.$gsap.to('#toolbartitle', { x: -50, duration: 0.3 }) : this.$gsap.to('#toolbartitle', { x: 0, duration: 0.3 })
+            value? this.$gsap.to('#toolbartitle', { x: -20, duration: 0.3 }) : this.$gsap.to('#toolbartitle', { x: 0, duration: 0.3 })
         }
     },
 }
