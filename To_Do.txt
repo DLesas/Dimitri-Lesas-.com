@@ -15,5 +15,4 @@
 - Make Notifications, one to introduce changing colors, another one to alert mobile users that it is primary designed for larger screens and one more to invite people to add a review [Hard, 2 1/2 Hours]
 - Make Resume downloadable [Easy, 1 hour]
 - add some global css to change how the scroll bar looks [Easy, 30 mins]
-- Add colour Reset button which resets colors to original [Easy, 15 mins]
 - fix index background, seems funny on weird sizez [medium, 1 hour]

@@ -257,9 +257,6 @@ export default {
         changecolors(value) {
             if (value !== undefined) {
                 for (let index = 0; index < value.length; index++) {
-                    /* if (typeof value[index] === "string") {
-                        value[index] = parseInt(value[index])
-                    } */
                     const color = new this.THREE.Color(
                        parseInt(value[index])
                     )
