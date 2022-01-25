@@ -6,6 +6,7 @@ export default {
             silent: true,
         },
     },
+
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         titleTemplate: '%s - Dimitri',
@@ -72,7 +73,7 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
-        '@nuxtjs/localtunnel'
+        // '@nuxtjs/localtunnel',
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios

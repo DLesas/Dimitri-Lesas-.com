@@ -172,3 +172,8 @@
 
 <style lang="scss" scoped>
 </style>
+<style>
+.nuxt-progress{
+    background-color: var(--v-primary-darken5) !important
+}
+</style>
