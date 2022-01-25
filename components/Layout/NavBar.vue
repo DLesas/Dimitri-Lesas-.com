@@ -73,7 +73,7 @@ export default {
         } else {
             this.app = false
         }
-        this.tomove = 170
+        this.tomove = 175
         this.mobile? this.handletitle(this.mobile) : this.tomove = 170
     },
     methods: {

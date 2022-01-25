@@ -5,7 +5,6 @@
 - Update Resume [Easy, 3 hours]
 - Sort out pages Heads for SEO [Medium, 3 hours]
 - look to minimize frameworks we are importing and also look to only import them on the relevant page [Hard, 2 hours]
-- Sort out Settings menu [Hard, 3 hours]
 - Make dark and light mode switch more playful [Medium, 1 1/2 hours]
 - get a better image for myself on the About page [Easy 1 hour]
 - give myself eyes that follow mouse on image on about page [Hard, 2 hours]

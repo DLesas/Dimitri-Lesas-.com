@@ -184,9 +184,6 @@ export default {
                 // light = new THREE.AmbientLight(conf.ambientColor);
                 // scene.add(light);
                 // eslint-disable-next-line no-empty
-                if (vue.color !== '#03a9f4') {
-                    vue.changecolors(vue.color)
-                }
 
                 vue.light1.position.set(0, y, r)
                 vue.scene.add(vue.light1)
@@ -260,8 +257,11 @@ export default {
         changecolors(value) {
             if (value !== undefined) {
                 for (let index = 0; index < value.length; index++) {
+                    /* if (typeof value[index] === "string") {
+                        value[index] = parseInt(value[index])
+                    } */
                     const color = new this.THREE.Color(
-                        parseInt(value[index], 16)
+                       parseInt(value[index])
                     )
                     this[`light${index + 1}`].color = color
                 }

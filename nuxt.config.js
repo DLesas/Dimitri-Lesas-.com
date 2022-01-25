@@ -91,7 +91,7 @@ export default {
                     accent: colors.white,
                     strongaccent: colors.blue.lighten5,
                     ripple: colors.indigo.accent4,
-                    wave: [0x0e09dc, 0x1cd1e1, 0x18c02c, 0xee3bcf],
+                    wave: ['0x0e09dc', '0x1cd1e1', '0x18c02c', '0xee3bcf'],
                     analogic: [
                         '#1006EC',
                         '#1706ED',
@@ -159,7 +159,7 @@ export default {
                     accent: colors.white,
                     strongaccent: colors.blue.lighten5,
                     ripple: colors.indigo.accent4,
-                    wave: [0x0e09dc, 0x1cd1e1, 0x18c02c, 0xee3bcf],
+                    wave: ['0x0e09dc', '0x1cd1e1', '0x18c02c', '0xee3bcf'],
                     analogic: [
                         '#1006EC',
                         '#1706ED',

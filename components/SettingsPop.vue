@@ -2,7 +2,6 @@
     <sub-menu
       icon='mdi-settings'
       :menu-items='fileMenuItems'
-      @sub-menu-click='onMenuItemClick'
     />
 </template>
 
@@ -15,6 +14,7 @@
                     iconon: "mdi-palette",
                     menu: [
                         { lightmode : true },
+                        { isDivider : true },
                         { colorpicker : true }
                     ]
                 },
