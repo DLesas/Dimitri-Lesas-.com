@@ -158,7 +158,7 @@
                     this.$vuetify.theme.themes.light.wave = wave
                     this.$vuetify.theme.themes.dark.wave = wave
                 }
-            }, 300);
+            }, 0);
         },
         methods: {
             closeside() {
