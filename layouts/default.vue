@@ -31,6 +31,7 @@
                     v-ripple="{ class: `ripple--text` }"
                     icon
                     :href = social.to
+                    rel="noreferrer"
                     target="_blank"
                     @mouseover.native="social.large = true"
                     @mouseleave.native="social.large = false"

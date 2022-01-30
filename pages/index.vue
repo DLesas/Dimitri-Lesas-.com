@@ -44,6 +44,7 @@
                                     <a
                                         href="https://www.southampton.ac.uk/about.page"
                                         target="_blank"
+                                        rel="noreferrer"
                                     >
                                         <vue-typer
                                             v-if="render4"

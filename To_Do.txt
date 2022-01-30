@@ -17,3 +17,4 @@
 - add some global css to change how the scroll bar looks [Easy, 30 mins]
 - fix index background, seems funny on weird sizez [medium, 1 hour]
 - change confused gif for phones on portfolio page [easy, 30 mins]
+- need to include some hidden standard html text on the front page for seo [easy 15 mins]
