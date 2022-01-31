@@ -63,6 +63,7 @@
                 indexmounted: true,
                 darkdrawer: true,
                 drawer: false,
+                firstcheck: false,
                 socialmedia: [
                     {
                         icon: "mdi-linkedin",
@@ -105,15 +106,22 @@
                 if (newValue !== "/") {
                     this.indexmounted = false
                 }
+            },
+            view(newValue){
+                if (newValue === "lg" || newValue === "xl" && this.firstcheck === false){
+                    setTimeout(() => { 
+                        this.drawer = true
+                        this.$refs.LayNav.sidebar = !this.$refs.LayNav.sidebar
+                        this.$refs.LayNav.movetitle()
+                        this.firstcheck = true
+                    }, 50);
+                }
             }
         },
         mounted () {
             this.$nuxt.$on('indexmounted', () => {
                 this.indexmounted = true
             })
-            if (this.view === "lg") {
-                this.drawer = true
-            }
             const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
             if (darkMediaQuery.matches) {
                 setTimeout(() => { 
