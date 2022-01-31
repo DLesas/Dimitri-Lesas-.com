@@ -94,6 +94,9 @@
             },
             route() {
                 return this.$route.path 
+            },
+            view() {
+                return this.$vuetify.breakpoint.name
             }
         },
         watch: {
@@ -107,6 +110,9 @@
             this.$nuxt.$on('indexmounted', () => {
                 this.indexmounted = true
             })
+            if (this.view === "lg") {
+                this.drawer = true
+            }
             const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
             if (darkMediaQuery.matches) {
                 setTimeout(() => { 
