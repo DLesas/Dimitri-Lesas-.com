@@ -63,6 +63,7 @@
                 indexmounted: true,
                 darkdrawer: true,
                 drawer: false,
+                firstcheck: false,
                 socialmedia: [
                     {
                         icon: "mdi-linkedin",
@@ -95,12 +96,25 @@
             },
             route() {
                 return this.$route.path 
+            },
+            view() {
+                return this.$vuetify.breakpoint.name
             }
         },
         watch: {
             route(newValue) {
                 if (newValue !== "/") {
                     this.indexmounted = false
+                }
+            },
+            view(newValue){
+                if (newValue === "lg" || newValue === "xl" && this.firstcheck === false){
+                    setTimeout(() => { 
+                        this.drawer = true
+                        this.$refs.LayNav.sidebar = !this.$refs.LayNav.sidebar
+                        this.$refs.LayNav.movetitle()
+                        this.firstcheck = true
+                    }, 50);
                 }
             }
         },
