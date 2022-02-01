@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container id="main" fluid class="parent" fill-height>
-            <v-row no-gutters align="center" class="pt-0 mt-0">
+            <v-row no-gutters align="center" class="pt-11 mt-0 pt-md-0">
                 <v-col cols="12">
                     <client-only>
                         <div id="toremove" class="mid pt-md-5 pt-lg-9 pt-md-0">
@@ -117,7 +117,8 @@
                             <v-col
                                 v-for="(link, i) in quicklinks"
                                 :key="i"
-                                cols="6"
+                                class="pb-3"
+                                :cols="orientation === 'landscape'? 4 : 6"
                                 md="4"
                             >
                                 <v-btn
@@ -166,7 +167,6 @@
                         </v-row>
                     </v-row>
                 </v-col>
-                <v-spacer></v-spacer>
             </v-row>
         </v-container>
         <three-background></three-background>
@@ -182,6 +182,7 @@ export default {
     components: { ThreeBackground },
     data() {
         return {
+            orientation: "landscape",
             countWord: 0,
             timestamp: 0,
             render: false,
@@ -234,11 +235,18 @@ export default {
         dark() {
             return this.$vuetify.theme.dark
         },
+        view() {
+            return this.$vuetify.breakpoint.name
+        },
     },
     async mounted() {
         setTimeout(() => {
             this.$nuxt.$emit('indexmounted')
         }, 400)
+
+        this.handleorientation(window.screen.orientation.type)
+        screen.orientation.addEventListener('change', this.handleorientation)
+
         const visited = await this.getCookie('visited')
         if (visited === null) {
             this.setCookie('visited', 1, 31)
@@ -246,6 +254,7 @@ export default {
             this.text1 = 'Welcome back!'
             this.text2 = 'As you know I am'
         }
+
         this.render = true
     },
     beforeDestroy() {
@@ -323,6 +332,13 @@ export default {
             const value_or_null = (document.cookie.match(reg) || [, null])[1]
             return value_or_null
         },
+        handleorientation(e) {
+            if (typeof(e) === "object") {
+                e.currentTarget.type === "landscape-primary"? this.orientation = "landscape" : this.orientation = "portrait"
+            } else {
+                e === "landscape-primary"? this.orientation = "landscape" : this.orientation = "portrait"
+            }
+        }
     },
 }
 </script>
@@ -367,6 +383,25 @@ export default {
 .vue-typer.dark ::v-deep .typed {
     color: rgb(255, 255, 255);
 }
+
+@media only screen and (max-width: 600px) {
+    .vue-typer ::v-deep .typed {
+        font-size: 15px;
+    }
+    .vue-typer.unsure ::v-deep .typed {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 1000px) {
+  .vue-typer ::v-deep .typed {
+        font-size: 13px;
+    }
+    .vue-typer.unsure ::v-deep .typed {
+        font-size: 13px;
+    }
+}
+
 .text {
     font-family: 'Handlee', cursive;
     //  font-family: 'Merienda', cursive;
