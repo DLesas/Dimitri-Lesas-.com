@@ -267,8 +267,6 @@ export default {
             this.height = window.visualViewport.height
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height)
-                console.log(this.width)
-                console.log(this.height)
                 this.camera.aspect = this.width / this.height
                 this.camera.updateProjectionMatrix()
                 const wsize = this.getRendererSize()
@@ -284,14 +282,12 @@ export default {
                 }, 500)
             }
         },
-        updateSizeDelay(delay=0) {
+        updateSizeDelay(delay=100) {
             setTimeout(() => {
             this.width = window.visualViewport.width
             this.height = window.visualViewport.height
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height)
-                console.log(this.width)
-                console.log(this.height)
                 this.camera.aspect = this.width / this.height
                 this.camera.updateProjectionMatrix()
                 const wsize = this.getRendererSize()
