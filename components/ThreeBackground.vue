@@ -276,14 +276,6 @@ export default {
                 this.wWidth = wsize[0]
                 this.wHeight = wsize[1]
             }
-            if (
-                this.width === undefined ||
-                (this.height === undefined && this.counter < 10)
-            ) {
-                setTimeout(() => {
-                    this.updateSize()
-                }, 500)
-            }
         },
         updateSizeDelay(delay = 300) {
             setTimeout(() => {
