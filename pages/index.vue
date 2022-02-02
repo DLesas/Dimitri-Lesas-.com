@@ -332,7 +332,7 @@ export default {
             const value_or_null = (document.cookie.match(reg) || [, null])[1]
             return value_or_null
         },
-        handleorientation(e) {
+        handleorientation() {
             if (window.matchMedia('(orientation: portrait)').matches) {
                 this.orientation = 'portrait'
             }
