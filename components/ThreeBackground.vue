@@ -266,15 +266,9 @@ export default {
         },
         updateSize() {
             this.width =
-                window.innerWidth < window.outerWidth &&
-                window.innerWidth !== undefined
-                    ? Window.innerWidth
-                    : window.outerWidth
+                window.innerWidth
             this.height =
-                window.innerHeight < window.outerHeight &&
-                window.innerHeight !== undefined
-                    ? window.innerHeight
-                    : window.outerHeight
+                window.innerHeight
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height)
                 this.camera.aspect = this.width / this.height
