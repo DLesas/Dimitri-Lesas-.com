@@ -271,6 +271,8 @@ export default {
                 window.screen.height
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height)
+                console.log(this.width)
+                console.log(this.height)
                 this.camera.aspect = this.width / this.height
                 this.camera.updateProjectionMatrix()
                 const wsize = this.getRendererSize()
