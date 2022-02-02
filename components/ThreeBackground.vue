@@ -44,7 +44,7 @@ export default {
         },
         view() {
             return this.$vuetify.breakpoint.name
-        }
+        },
         // orient() {
         // bob
         // }
@@ -285,26 +285,26 @@ export default {
                 }, 500)
             }
         },
-        updateSizeDelay(delay=100) {
+        updateSizeDelay(delay = 100) {
             setTimeout(() => {
-            this.width = window.visualViewport.width
-            this.height = window.visualViewport.height
-            if (this.renderer && this.camera) {
-                this.renderer.setSize(this.width, this.height)
-                this.camera.aspect = this.width / this.height
-                this.camera.updateProjectionMatrix()
-                const wsize = this.getRendererSize()
-                this.wWidth = wsize[0]
-                this.wHeight = wsize[1]
-            }
-            if (
-                this.width === undefined ||
-                (this.height === undefined && this.counter < 10)
-            ) {
-                setTimeout(() => {
-                    this.updateSize()
-                }, 500)
-            }
+                this.width = window.visualViewport.width
+                this.height = window.visualViewport.height
+                if (this.renderer && this.camera) {
+                    this.renderer.setSize(this.width, this.height)
+                    this.camera.aspect = this.width / this.height
+                    this.camera.updateProjectionMatrix()
+                    const wsize = this.getRendererSize()
+                    this.wWidth = wsize[0]
+                    this.wHeight = wsize[1]
+                }
+                if (
+                    this.width === undefined ||
+                    (this.height === undefined && this.counter < 10)
+                ) {
+                    setTimeout(() => {
+                        this.updateSize()
+                    }, 500)
+                }
             }, delay)
         },
         getRendererSize() {
