@@ -285,7 +285,7 @@ export default {
                 }, 500)
             }
         },
-        updateSizeDelay(delay = 100) {
+        updateSizeDelay(delay = 300) {
             setTimeout(() => {
                 this.width = window.visualViewport.width
                 this.height = window.visualViewport.height
