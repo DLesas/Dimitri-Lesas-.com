@@ -269,9 +269,9 @@ export default {
         },
         updateSize() {
             this.width =
-                window.visualViewport.width
+                window.screen.width
             this.height =
-                window.visualViewport.height
+                window.screen.height
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height)
                 this.camera.aspect = this.width / this.height
