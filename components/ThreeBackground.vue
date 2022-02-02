@@ -42,6 +42,9 @@ export default {
         dark() {
             return this.$vuetify.theme.dark
         },
+        view() {
+            return this.$vuetify.breakpoint.name
+        }
         // orient() {
         // bob
         // }
@@ -266,9 +269,9 @@ export default {
         },
         updateSize() {
             this.width =
-                window.innerWidth
+                window.visualViewport.width
             this.height =
-                window.innerHeight
+                window.visualViewport.height
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height)
                 this.camera.aspect = this.width / this.height
