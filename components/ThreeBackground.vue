@@ -42,6 +42,9 @@ export default {
         dark() {
             return this.$vuetify.theme.dark
         },
+        view() {
+            return this.$vuetify.breakpoint.name
+        }
         // orient() {
         // bob
         // }
