@@ -118,7 +118,7 @@
                                 v-for="(link, i) in quicklinks"
                                 :key="i"
                                 class="pb-3"
-                                :cols="orientation === 'landscape'? 4 : 6"
+                                :cols="orientation === 'landscape' ? 4 : 6"
                                 md="4"
                             >
                                 <v-btn
@@ -182,7 +182,7 @@ export default {
     components: { ThreeBackground },
     data() {
         return {
-            orientation: "landscape",
+            orientation: 'landscape',
             countWord: 0,
             timestamp: 0,
             render: false,
@@ -245,7 +245,7 @@ export default {
         }, 400)
 
         this.handleorientation(window.screen.orientation.type)
-        screen.orientation.addEventListener('change', this.handleorientation)
+        window.addEventListener('orientationchange', this.handleorientation)
 
         const visited = await this.getCookie('visited')
         if (visited === null) {
@@ -332,13 +332,14 @@ export default {
             const value_or_null = (document.cookie.match(reg) || [, null])[1]
             return value_or_null
         },
-        handleorientation(e) {
-            if (typeof(e) === "object") {
-                e.currentTarget.type === "landscape-primary"? this.orientation = "landscape" : this.orientation = "portrait"
-            } else {
-                e === "landscape-primary"? this.orientation = "landscape" : this.orientation = "portrait"
+        handleorientation() {
+            if (window.matchMedia('(orientation: portrait)').matches) {
+                this.orientation = 'portrait'
             }
-        }
+            if (window.matchMedia('(orientation: landscape)').matches) {
+                this.orientation = 'landscape'
+            }
+        },
     },
 }
 </script>
@@ -394,7 +395,7 @@ export default {
 }
 
 @media only screen and (orientation: landscape) and (max-width: 1000px) {
-  .vue-typer ::v-deep .typed {
+    .vue-typer ::v-deep .typed {
         font-size: 13px;
     }
     .vue-typer.unsure ::v-deep .typed {

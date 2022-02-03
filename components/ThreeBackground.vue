@@ -44,7 +44,7 @@ export default {
         },
         view() {
             return this.$vuetify.breakpoint.name
-        }
+        },
         // orient() {
         // bob
         // }
@@ -131,7 +131,7 @@ export default {
                 window.addEventListener('resize', vue.updateSize, false)
                 window.addEventListener(
                     'orientationchange',
-                    vue.updateSize,
+                    vue.updateSizeDelay,
                     false
                 )
 
@@ -260,18 +260,14 @@ export default {
         changecolors(value) {
             if (value !== undefined) {
                 for (let index = 0; index < value.length; index++) {
-                    const color = new this.THREE.Color(
-                       parseInt(value[index])
-                    )
+                    const color = new this.THREE.Color(parseInt(value[index]))
                     this[`light${index + 1}`].color = color
                 }
             }
         },
         updateSize() {
-            this.width =
-                window.screen.width
-            this.height =
-                window.screen.height
+            this.width = window.visualViewport.width
+            this.height = window.visualViewport.height
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height)
                 this.camera.aspect = this.width / this.height
@@ -280,14 +276,28 @@ export default {
                 this.wWidth = wsize[0]
                 this.wHeight = wsize[1]
             }
-            if (
-                this.width === undefined ||
-                (this.height === undefined && this.counter < 10)
-            ) {
-                setTimeout(() => {
-                    this.updateSize()
-                }, 500)
-            }
+        },
+        updateSizeDelay(delay = 300) {
+            setTimeout(() => {
+                this.width = window.visualViewport.width
+                this.height = window.visualViewport.height
+                if (this.renderer && this.camera) {
+                    this.renderer.setSize(this.width, this.height)
+                    this.camera.aspect = this.width / this.height
+                    this.camera.updateProjectionMatrix()
+                    const wsize = this.getRendererSize()
+                    this.wWidth = wsize[0]
+                    this.wHeight = wsize[1]
+                }
+                if (
+                    this.width === undefined ||
+                    (this.height === undefined && this.counter < 10)
+                ) {
+                    setTimeout(() => {
+                        this.updateSize()
+                    }, 500)
+                }
+            }, delay)
         },
         getRendererSize() {
             const cam = new this.THREE.PerspectiveCamera(
