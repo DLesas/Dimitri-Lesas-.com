@@ -279,8 +279,10 @@ export default {
         },
         updateSizeDelay(delay = 300) {
             setTimeout(() => {
-                this.width = window.visualViewport.width
-                this.height = window.visualViewport.height
+                console.log(this.$vuetify.breakpoint.height)
+                console.log(this.$vuetify.breakpoint.width)
+                this.width = this.$vuetify.breakpoint.width
+                this.height = this.$vuetify.breakpoint.height
                 if (this.renderer && this.camera) {
                     this.renderer.setSize(this.width, this.height)
                     this.camera.aspect = this.width / this.height

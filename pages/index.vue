@@ -242,10 +242,9 @@ export default {
     async mounted() {
         setTimeout(() => {
             this.$nuxt.$emit('indexmounted')
+            this.handleorientation(window.screen.orientation.type)
+            window.addEventListener('orientationchange', this.handleorientation)
         }, 400)
-
-        this.handleorientation(window.screen.orientation.type)
-        window.addEventListener('orientationchange', this.handleorientation)
 
         const visited = await this.getCookie('visited')
         if (visited === null) {
