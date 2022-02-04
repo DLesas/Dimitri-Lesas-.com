@@ -182,7 +182,7 @@ export default {
     components: { ThreeBackground },
     data() {
         return {
-            orientation: 'landscape',
+            orientation: 'portrait',
             countWord: 0,
             timestamp: 0,
             render: false,
@@ -332,10 +332,10 @@ export default {
             return value_or_null
         },
         handleorientation() {
-            if (window.matchMedia('(orientation: portrait)').matches) {
+            if (window.screen.orientation.angle === 90) {
                 this.orientation = 'portrait'
             }
-            if (window.matchMedia('(orientation: landscape)').matches) {
+            if (window.screen.orientation.angle === 0) {
                 this.orientation = 'landscape'
             }
         },
