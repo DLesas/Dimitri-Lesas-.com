@@ -129,11 +129,6 @@ export default {
 
                 vue.updateSize()
                 window.addEventListener('resize', vue.updateSize, false)
-                window.addEventListener(
-                    'orientationchange',
-                    vue.updateSizeDelay,
-                    false
-                )
 
                 document.addEventListener('mousemove', (e) => {
                     const v = new vue.THREE.Vector3()
@@ -248,8 +243,8 @@ export default {
         this.geo.dispose()
         this.renderer.dispose()
         window.removeEventListener('resize', this.updateSize)
-        window.removeEventListener('orientationchange', this.updateSize)
-        // document.removeEventListener('mousemove')
+        window.removeEventListener('orientationchange', this.updateSizeDelay)
+        document.removeEventListener('mousemove')
     },
     destroyed() {
         setTimeout(() => {
@@ -266,8 +261,10 @@ export default {
             }
         },
         updateSize() {
-            this.width = window.visualViewport.width
-            this.height = window.visualViewport.height
+            this.width =
+                window.visualViewport.width * window.visualViewport.scale
+            this.height =
+                window.visualViewport.height * window.visualViewport.scale
             if (this.renderer && this.camera) {
                 this.renderer.setSize(this.width, this.height)
                 this.camera.aspect = this.width / this.height
@@ -276,30 +273,6 @@ export default {
                 this.wWidth = wsize[0]
                 this.wHeight = wsize[1]
             }
-        },
-        updateSizeDelay(delay = 300) {
-            setTimeout(() => {
-                console.log(this.$vuetify.breakpoint.height)
-                console.log(this.$vuetify.breakpoint.width)
-                this.width = this.$vuetify.breakpoint.width
-                this.height = this.$vuetify.breakpoint.height
-                if (this.renderer && this.camera) {
-                    this.renderer.setSize(this.width, this.height)
-                    this.camera.aspect = this.width / this.height
-                    this.camera.updateProjectionMatrix()
-                    const wsize = this.getRendererSize()
-                    this.wWidth = wsize[0]
-                    this.wHeight = wsize[1]
-                }
-                if (
-                    this.width === undefined ||
-                    (this.height === undefined && this.counter < 10)
-                ) {
-                    setTimeout(() => {
-                        this.updateSize()
-                    }, 500)
-                }
-            }, delay)
         },
         getRendererSize() {
             const cam = new this.THREE.PerspectiveCamera(

@@ -182,7 +182,7 @@ export default {
     components: { ThreeBackground },
     data() {
         return {
-            orientation: 'portrait',
+            orientation: 'landscape',
             countWord: 0,
             timestamp: 0,
             render: false,
@@ -259,6 +259,7 @@ export default {
     beforeDestroy() {
         const el = document.getElementById('toremove')
         el.parentNode.removeChild(el)
+        window.removeEventListener('orientationchange', this.handleorientation)
     },
     methods: {
         async render0finished() {
@@ -332,12 +333,14 @@ export default {
             return value_or_null
         },
         handleorientation() {
-            if (window.screen.orientation.angle === 90) {
-                this.orientation = 'portrait'
-            }
-            if (window.screen.orientation.angle === 0) {
-                this.orientation = 'landscape'
-            }
+            setTimeout(() => {
+                if (window.screen.orientation.angle === 0) {
+                    this.orientation = 'portrait'
+                }
+                if (window.screen.orientation.angle === 90) {
+                    this.orientation = 'landscape'
+                }
+            }, 200)
         },
     },
 }
