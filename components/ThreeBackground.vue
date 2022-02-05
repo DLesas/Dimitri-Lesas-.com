@@ -130,19 +130,7 @@ export default {
                 vue.updateSize()
                 window.addEventListener('resize', vue.updateSize, false)
 
-                document.addEventListener('mousemove', (e) => {
-                    const v = new vue.THREE.Vector3()
-                    vue.camera.getWorldDirection(v)
-                    v.normalize()
-                    vue.mousePlane.normal = v
-                    vue.mouse.x = (e.clientX / vue.width) * 2 - 1
-                    vue.mouse.y = -(e.clientY / vue.height) * 2 + 1
-                    vue.raycaster.setFromCamera(vue.mouse, vue.camera)
-                    vue.raycaster.ray.intersectPlane(
-                        vue.mousePlane,
-                        vue.mousePosition
-                    )
-                })
+                document.addEventListener('mousemove', vue.WaveInteract)
 
                 initScene()
                 animate()
@@ -244,7 +232,7 @@ export default {
         this.renderer.dispose()
         window.removeEventListener('resize', this.updateSize)
         window.removeEventListener('orientationchange', this.updateSizeDelay)
-        document.removeEventListener('mousemove')
+        document.removeEventListener('mousemove', this.WaveInteract)
     },
     destroyed() {
         setTimeout(() => {
@@ -284,7 +272,20 @@ export default {
             const width = height * cam.aspect
             return [width, height]
         },
-    },
+        WaveInteract(e) {
+                const v = new this.THREE.Vector3()
+                this.camera.getWorldDirection(v)
+                v.normalize()
+                this.mousePlane.normal = v
+                this.mouse.x = (e.clientX / this.width) * 2 - 1
+                this.mouse.y = -(e.clientY / this.height) * 2 + 1
+                this.raycaster.setFromCamera(this.mouse, this.camera)
+                this.raycaster.ray.intersectPlane(
+                    this.mousePlane,
+                    this.mousePosition
+                )
+        },
+    }
 }
 </script>
 

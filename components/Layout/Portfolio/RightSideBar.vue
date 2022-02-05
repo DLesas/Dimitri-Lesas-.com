@@ -8,46 +8,55 @@
         clipped
         :style="dark ? 'background: #121212' : ''"
     >
-        <v-container slot="prepend" class="text-h6"> Contents </v-container>
-        <v-container>
-            <v-list flat dense class="py-0 my-0">
-                <v-list-group
-                    v-for="(content, i) in contents"
-                    :key="i"
-                    :append-icon="
-                        content.Children.length > 0 ? 'mdi-chevron-down' : ''
-                    "
-                    @click.native="
-                                content.Children.length === 0
-                                    ? goto(content.ID)
-                                    : ''
-                            "
-                    class="pl-5 text-body-2 py-0 my-0 font-weight-regular"
-                >
-                    <template #activator>
-                        <v-list-item-content
-                        >
-                            <v-list-item-title>
-                                {{ content.Title }}
-                            </v-list-item-title>
-                        </v-list-item-content>
-                    </template>
-                    <v-list-item
-                        v-for="(child, j) in content.Children"
-                        :key="j"
-                        class="pl-10 text-body-3 py-0 my-0 font-weight-regular"
-                        nuxt
-                        :to="child.ID"
+        <div v-if="route === '/Portfolio/EPA'">
+            <v-container slot="prepend" class="text-h6"> Contents </v-container>
+            <v-container>
+                <v-list flat dense class="py-0 my-0">
+                    <v-list-group
+                        v-for="(content, i) in contents"
+                        :key="i"
+                        :append-icon="
+                            content.Children.length > 0
+                                ? 'mdi-chevron-down'
+                                : ''
+                        "
+                        class="pl-5 text-body-2 py-0 my-0 font-weight-regular"
+                        @click.native="
+                            content.Children.length === 0
+                                ? goto(content.ID)
+                                : ''
+                        "
                     >
-                        <v-list-item-content>
-                            <v-list-item-title>
-                                {{ child.Title }}
-                            </v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list-group>
-            </v-list>
-        </v-container>
+                        <template #activator>
+                            <v-list-item-content>
+                                <v-list-item-title>
+                                    {{ content.Title }}
+                                </v-list-item-title>
+                            </v-list-item-content>
+                        </template>
+                        <v-list-item
+                            v-for="(child, j) in content.Children"
+                            :key="j"
+                            class="pl-10 text-body-3 py-0 my-0 font-weight-regular"
+                            nuxt
+                            :to="child.ID"
+                        >
+                            <v-list-item-content>
+                                <v-list-item-title>
+                                    {{ child.Title }}
+                                </v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-list-group>
+                </v-list>
+            </v-container>
+        </div>
+        <div v-else-if="route = '/Portfolio/Sentiment_Analysis'">
+            <v-container slot="prepend" class="text-h6"> Controls </v-container>
+            <v-container>
+                <SentControl></SentControl>
+            </v-container>
+        </div>
         <v-container slot="append">
             <v-container class="px-0 mx-0"> Languages Used </v-container>
             <v-chip-group class="pl-5" column>
@@ -327,10 +336,7 @@ export default {
             }, 50)
         },
         goto(hash) {
-            console.log(hash)
-            this.$router.replace(
-                `#${hash}`
-            )
+            this.$router.replace(`#${hash}`)
         },
     },
 }

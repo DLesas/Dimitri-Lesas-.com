@@ -21,7 +21,7 @@
                 movetitle()
             "
         />
-        <v-toolbar-title id="toolbartitle" class="ma-0 pa-0">
+        <v-toolbar-title id="toolbartitle" class="ma-0 pa-0" style="z-index: -10">
             <LayTitle />
         </v-toolbar-title>
         <v-spacer />

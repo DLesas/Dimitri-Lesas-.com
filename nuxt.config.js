@@ -49,6 +49,8 @@ export default {
         { path: '~/components/Layout/', prefix: 'Lay' },
         { path: '~/components/Layout/Settings', prefix: 'LaySet' },
         { path: '~/components/Layout/Portfolio', prefix: 'LayPort' },
+        { path: '~/components/SentimentAnalysis/', prefix: 'Sent' },
+        { path: '~/components/SentimentAnalysis/Controls/', prefix: 'SentCont' },
     ],
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -74,7 +76,7 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
-        '@nuxtjs/localtunnel',
+        // '@nuxtjs/localtunnel',
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios

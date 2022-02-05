@@ -189,6 +189,7 @@
 </style>
 <style>
 .nuxt-progress{
-    background-color: var(--v-primary-darken5) !important
+    background-color: var(--v-primary-darken3) !important;
+    height: '4px'
 }
 </style>
