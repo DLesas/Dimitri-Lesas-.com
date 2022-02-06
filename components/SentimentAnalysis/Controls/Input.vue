@@ -5,12 +5,11 @@
             v-model="model"
             :items="items"
             hide-selected
-            hint="Maximum of 5 tags. press enter to save"
+            hint="Maximum of 5 tags, press enter to save tag."
             label="Tags to search twitter for"
             multiple
             small-chips
             deletable-chips
-            item-color="primary"
             :search-input="search"
         >
             <div slot="append">

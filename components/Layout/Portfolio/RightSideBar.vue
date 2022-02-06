@@ -9,7 +9,7 @@
         :style="dark ? 'background: #121212' : ''"
     >
         <div v-if="route === '/Portfolio/EPA'">
-            <v-container slot="prepend" class="text-h6"> Contents </v-container>
+            <v-container slot="prepend" class="text-h6 primary--text text--darken-4"> Contents </v-container>
             <v-container>
                 <v-list flat dense class="py-0 my-0">
                     <v-list-group
@@ -51,14 +51,14 @@
                 </v-list>
             </v-container>
         </div>
-        <div v-else-if="route = '/Portfolio/Sentiment_Analysis'">
-            <v-container slot="prepend" class="text-h6"> Controls </v-container>
-            <v-container>
+        <div v-else-if="route = '/Portfolio/Sentiment_Analysis'" style="height: 100%">
+            <v-container slot="prepend" class="text-h6 primary--text text--darken-4"> Controls </v-container>
+            <v-container fluid style="flex: 1 1 auto;">
                 <SentControl></SentControl>
             </v-container>
         </div>
         <v-container slot="append">
-            <v-container class="px-0 mx-0"> Languages Used </v-container>
+            <v-container class="px-0 mx-0" style="text-decoration: underline;"> Languages Used </v-container>
             <v-chip-group class="pl-5" column>
                 <v-chip
                     v-for="(Lang, j) in LanguageTags"
@@ -68,7 +68,7 @@
                     {{ Lang }}
                 </v-chip>
             </v-chip-group>
-            <v-container class="px-0 mx-0"> Modules Used </v-container>
+            <v-container class="px-0 mx-0" style="text-decoration: underline;"> Modules Used </v-container>
             <v-chip-group class="pl-5" column>
                 <v-chip
                     v-for="(Tag, i) in ModuleTags"
