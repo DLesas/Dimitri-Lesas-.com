@@ -77,7 +77,7 @@
                         large:false
                     },
                     {
-                        icon: "mdi-instagram",
+                        icon: "mdi-twitter",
                         to: "",
                         large:false
                     }

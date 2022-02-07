@@ -1,33 +1,12 @@
 {
-    "EPA" : {
-        "SideBarTitle" : "Image Recognition",
-        "SideBarIcon" : "mdi-horse-human",
-        "Link" : "/Portfolio/EPA",
-        "Type" : "Image Recognition",
-        "Img" : "",
-        "Category" : "FullStack",
-        "SkillsUsed" : [
-            "Python",
-            "Javascript",
-            "Html",
-            "Numpy",
-            "Pandas",
-            "Pytorch",
-            "Seaborn",
-            "Matplotlib",
-            "OpenCV",
-            "Excel"
-        ],
-        "brief" : "Placeholder brief of Image recognition"
-    },
-    "Sentiment Analysis" : {
-        "SideBarTitle" : "Sentiment Analysis (NLP)",
-        "SideBarIcon" : "mdi-twitter",
-        "Link" : "/Portfolio/Sentiment_Analysis",
-        "Type" : "Sentiment Analysis",
-        "Img" : "",
-        "Category" : "FullStack",
-        "SkillsUsed" : [
+    "Sentiment Analysis": {
+        "SideBarTitle": "Sentiment Analysis (NLP)",
+        "SideBarIcon": "mdi-twitter",
+        "Link": "/Portfolio/Sentiment_Analysis",
+        "Type": "Sentiment Analysis",
+        "Img": "",
+        "Category": "FullStack",
+        "SkillsUsed": [
             "Python",
             "Javascript",
             "Html",
@@ -39,15 +18,36 @@
             "Vuetify",
             "Plotly"
         ],
-        "brief" : ""
+        "brief": ""
     },
-    "Customer Segmentation" : {
-        "SideBarTitle" : "Customer Segmentation",
-        "SideBarIcon" : "mdi-account-multiple-outline" ,
-        "Link" : "/Portfolio/Customer_Segementation",
-        "Type" : "Segmetation",
-        "Img" : "",
-        "Category" : "Data Visualisation",
+    "EPA": {
+        "SideBarTitle": "Image Recognition",
+        "SideBarIcon": "mdi-horse-human",
+        "Link": "/Portfolio/EPA",
+        "Type": "Image Recognition",
+        "Img": "",
+        "Category": "FullStack",
+        "SkillsUsed": [
+            "Python",
+            "Javascript",
+            "Html",
+            "Numpy",
+            "Pandas",
+            "Pytorch",
+            "Seaborn",
+            "Matplotlib",
+            "OpenCV",
+            "Excel"
+        ],
+        "brief": "Placeholder brief of Image recognition"
+    },
+    "Customer Segmentation": {
+        "SideBarTitle": "Customer Segmentation",
+        "SideBarIcon": "mdi-account-multiple-outline",
+        "Link": "/Portfolio/Customer_Segementation",
+        "Type": "Segmetation",
+        "Img": "",
+        "Category": "Data Visualisation",
         "SkillsUsed": [
             "Python",
             "Javascript",
@@ -59,6 +59,6 @@
             "Vuetify",
             "Plotly"
         ],
-        "brief" : ""
+        "brief": ""
     }
 }

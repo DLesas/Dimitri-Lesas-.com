@@ -1,6 +1,6 @@
 <template>
-    <div id="plotly">
-    </div>
+    <v-card id="plotly">
+    </v-card>
 </template>
 
 <script>
@@ -51,6 +51,22 @@
 	                    t: 0
                         }
                     }
+                }
+            }
+        },
+        watch: {
+            data: {
+                deep: true,
+                handler(newValue) {
+                    const el = document.getElementById("plotly")
+                    this.$plotly().Plotly.react(el, this.data, this.layout)
+                }
+            },
+            layout: {
+                deep: true,
+                handler(newValue) {
+                    const el = document.getElementById("plotly")
+                    this.$plotly().Plotly.react(el, this.data, this.layout)
                 }
             }
         },

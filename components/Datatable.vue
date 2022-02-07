@@ -25,6 +25,13 @@ export default {
             type: String,
             default: 'ID',
         },
+        toexclude: {
+            type: Array,
+            default() {
+                return []
+            }
+        },
+        
     },
     data() {
         return {
@@ -53,7 +60,7 @@ export default {
                         text: header,
                         value: header,
                     })
-                } else {
+                } else if (!(this.toexclude.includes(header))) {
                     this.headers.push({ text: header, value: header })
                 }
                 count++

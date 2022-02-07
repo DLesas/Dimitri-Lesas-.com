@@ -53,12 +53,12 @@
         </div>
         <div v-else-if="route = '/Portfolio/Sentiment_Analysis'" style="height: 100%">
             <v-container slot="prepend" class="text-h6 primary--text text--darken-4"> Controls </v-container>
-            <v-container fluid style="flex: 1 1 auto;">
+            <v-container fluid style="height: 90%">
                 <SentControl></SentControl>
             </v-container>
         </div>
-        <v-container slot="append">
-            <v-container class="px-0 mx-0" style="text-decoration: underline;"> Languages Used </v-container>
+        <v-container fluid slot="append">
+            <v-container fluid class="px-0 mx-0" style="text-decoration: underline;"> Languages Used </v-container>
             <v-chip-group class="pl-5" column>
                 <v-chip
                     v-for="(Lang, j) in LanguageTags"
