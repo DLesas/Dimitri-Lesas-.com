@@ -44,7 +44,7 @@ export default {
                         intermediate[relevantdata.query] = { x: [], y: [] }
                     }
                     intermediate[relevantdata.query].x.push(
-                        relevantdata.date
+                        relevantdata.created_at
                     )
                     intermediate[relevantdata.query].y.push(
                         relevantdata.SentimentScore
@@ -52,6 +52,7 @@ export default {
                 }
                 let colorindex = 0
                 for (const trace in intermediate) {
+
                     console.log(this.$vuetify.theme.currentTheme.analogic_complement[colorindex])
                     final.push({
                         type: 'scatter',
@@ -72,10 +73,10 @@ export default {
     watch: {},
     mounted() {
         this.$nuxt.$on('DataRecieved', (data) => {
-            const cleandata = this.PrepareData(data.res, data.name)
+            console.log(data)
+            const cleandata = this.PrepareData(data.res, data.query)
             if (this.data.length > 0) {
                 this.data = this.data.concat(cleandata)
-                console.log(this.data)
             } else {
                 this.data = cleandata
             }

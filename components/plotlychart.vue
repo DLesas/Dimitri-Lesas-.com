@@ -44,6 +44,9 @@
                 type: Object,
                 default() {
                     return {
+                        xaxis: {
+                            type: 'date'
+                        },
                         margin: {
 	                    l: 0,
 	                    r: 0,
@@ -59,6 +62,7 @@
                 deep: true,
                 handler(newValue) {
                     const el = document.getElementById("plotly")
+                    console.log(this.data)
                     this.$plotly().Plotly.react(el, this.data, this.layout)
                 }
             },
