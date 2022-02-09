@@ -231,6 +231,18 @@ export default {
             iconclass: 'transparent',
         }
     },
+    head() {
+      return {
+        title: "Homepage",
+        meta: [
+          {
+            hid: 'Homepage',
+            name: 'Homepage',
+            content: "Home page of the portfolio of the full stack developer & Data scientist Dimitri Lesas', who is avaliable for employment / Contract Work / freelance work. Specialist in Data Analysis, Data Visualisation, Deep-Learning, Web development and web development."
+          }
+        ]
+      }
+    },
     computed: {
         dark() {
             return this.$vuetify.theme.dark

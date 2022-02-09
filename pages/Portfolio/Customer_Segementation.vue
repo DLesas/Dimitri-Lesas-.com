@@ -32,6 +32,19 @@
             return {
             }
         },
+        head() {
+        return {
+            title: 'Customer Segmentation',
+            meta: [
+                {
+                    hid: 'Customer Segmentation',
+                    name: 'Customer Segmentation',
+                    content:
+                        "Customer Segmentation Front end project created by the Full stack Developer & Data Scientist Dimitri Lesas. Here you will find an example of Dimitri Lesas' front end skills in the form of analysis on consumer behaviour A.K.A Customer Segmentation.",
+                },
+            ],
+        }
+    },
         computed: {
         },
         mounted () {

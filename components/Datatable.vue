@@ -44,7 +44,7 @@ export default {
         selected(newValue) {
             this.$emit('SelectedData', newValue)
         },
-        items(newValue) {
+        items() {
             this.headers = []
             this.GetDataReady()
         },

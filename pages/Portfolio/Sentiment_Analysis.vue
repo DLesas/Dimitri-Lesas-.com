@@ -1,11 +1,10 @@
 <template>
     <v-container>
-        <v-row> </v-row>
-        <v-row>
-            <v-col cols="12" md="6">
-                <plotlychart :data="graphdata"></plotlychart>
-            </v-col>
-            <v-col cols="12" md="6">
+        <v-row no-gutters>
+            <v-col cols="12"> <SentLineGraph :data="graphdata"></SentLineGraph></v-col>
+        </v-row>
+        <v-row no-gutters>
+            <v-col cols="12">
                 <Datatable
                     :items="data"
                     :toexclude="[
@@ -33,37 +32,36 @@ export default {
             TimeSeries: {},
         }
     },
+    head() {
+        return {
+            title: 'Sentiment Analysis',
+            meta: [
+                {
+                    hid: 'Sentiment Analysis',
+                    name: 'Sentiment Analysis',
+                    content:
+                        "Sentiment Analysis Full Stack project created by the Full stack Developer & Data Scientist Dimitri Lesas. Here you can pull and filter tweets from twitter and check the sentiment of the general public using various machine learning and deep learning models.",
+                },
+            ],
+        }
+    },
     computed: {
+        // current data is in [{x....}]
+        // need to set data as {x : [{'sentiment': y, 'date': x}]}
         graphdata() {
-            const intermediate = {}
-            const final = []
+            const final = {}
             if (this.data.length > 0) {
                 for (const datapoint in this.data) {
                     const relevantdata = this.data[datapoint]
-                    if (!(relevantdata.query in intermediate)) {
-                        intermediate[relevantdata.query] = { x: [], y: [] }
+                    if (!(relevantdata.query in final)) {
+                        final[relevantdata.query] = []
                     }
-                    intermediate[relevantdata.query].x.push(
-                        relevantdata.created_at
-                    )
-                    intermediate[relevantdata.query].y.push(
-                        relevantdata.SentimentScore
+                    final[relevantdata.query].push(
+                        {'sentiment': relevantdata.SentimentScore, 'date': relevantdata.created_at}
                     )
                 }
-                let colorindex = 0
-                for (const trace in intermediate) {
-
-                    console.log(this.$vuetify.theme.currentTheme.analogic_complement[colorindex])
-                    final.push({
-                        type: 'scatter',
-                        mode: 'lines',
-                        name: trace,
-                        x: intermediate[trace].x,
-                        y: intermediate[trace].y,
-                        line: { color: this.$vuetify.theme.currentTheme.analogic_complement[colorindex] },
-                    })
-                    colorindex++
-                }
+                console.log("final")
+                console.log(final)
                 return final
             } else {
                 return final
@@ -73,13 +71,13 @@ export default {
     watch: {},
     mounted() {
         this.$nuxt.$on('DataRecieved', (data) => {
-            console.log(data)
             const cleandata = this.PrepareData(data.res, data.query)
             if (this.data.length > 0) {
-                this.data = this.data.concat(cleandata)
+                this.data = this.data.concat(cleandata).sort(this.custom_sort)
             } else {
-                this.data = cleandata
+                this.data = cleandata.sort(this.custom_sort)
             }
+            console.log(this.data)
         })
     },
     methods: {
@@ -108,6 +106,12 @@ export default {
                 ':' +
                 ('0' + d.getMinutes()).slice(-2)
             return datestring
+        },
+        custom_sort(a, b) {
+            return (
+                new Date(a.created_at).getTime() -
+                new Date(b.created_at).getTime()
+            )
         },
     },
 }

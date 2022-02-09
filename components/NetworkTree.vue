@@ -57,8 +57,9 @@ export default {
         const element = document.getElementById('chartdiv')
         this.heighttouse =
             window.innerHeight - element.getBoundingClientRect().y - 20
-        // eslint-disable-next-line camelcase
-        const { am5, am5hierarchy, am5themes_Animated } = this.$am5()
+        /* eslint-disable camelcase */
+        // eslint-disable-next-line no-unused-vars
+        const { am5, am5hierarchy, am5themes_Animated, am5xy } = this.$am5()
         const root = am5.Root.new('chartdiv')
         // Set themes
         // https://www.amcharts.com/docs/v5/concepts/themes/

@@ -56,7 +56,21 @@
 </template>
 
 <script>
-export default {}
+export default {
+    head() {
+        return {
+            title: 'EPA',
+            meta: [
+                {
+                    hid: 'Equestrian Performance Analysis',
+                    name: 'Equestrian Performance Analysis',
+                    content:
+                        "Equestrian Performance Analysis Full Stack project created by the Full stack Developer & Data Scientist Dimitri Lesas. Here you will find various rationale and explanation as to how the deep learning models of Equestrian Performance Analysis works.",
+                },
+            ],
+        }
+    },
+}
 </script>
 
 <style lang="scss" scoped></style>
