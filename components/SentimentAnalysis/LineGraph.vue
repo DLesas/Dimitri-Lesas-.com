@@ -75,7 +75,7 @@ export default {
             am5xy.DateAxis.new(this.root, {
                 maxDeviation: 0.2,
                 baseInterval: {
-                    timeUnit: 'hour',
+                    timeUnit: 'minute',
                     count: 1,
                 },
                 renderer: am5xy.AxisRendererX.new(this.root, {}),
