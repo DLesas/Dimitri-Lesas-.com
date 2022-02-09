@@ -54,7 +54,7 @@ export default {
         GetDataReady() {
             let count = 0
             for (const header in this.items[0]) {
-                if (count === 0) {
+                if ((count === 0) && !(this.toexclude.includes(header))) {
                     this.headers.push({
                         align: 'start',
                         text: header,

@@ -75,7 +75,7 @@ export default {
             am5xy.DateAxis.new(this.root, {
                 maxDeviation: 0.2,
                 baseInterval: {
-                    timeUnit: 'day',
+                    timeUnit: 'hour',
                     count: 1,
                 },
                 renderer: am5xy.AxisRendererX.new(this.root, {}),
@@ -110,6 +110,7 @@ export default {
     },
     methods: {
         SetData() {
+            console.log("complete data")
             console.log(this.data)
             for (const seriesname in this.data) {
                 const series = this.chart.series.push(
@@ -124,13 +125,13 @@ export default {
                         }),
                     })
                 )
-
+                series.data.setAll(this.data[seriesname])
                 // Add scrollbar
                 // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
                 // Set data
                 console.log('this.data[seriesname]')
                 console.log(this.data[seriesname])
-                series.data.setAll(this.data[seriesname])
+                
 
                 this.legend.itemContainers.template.events.on(
                     'pointerover',

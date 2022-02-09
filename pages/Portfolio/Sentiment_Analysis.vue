@@ -1,7 +1,9 @@
 <template>
     <v-container>
         <v-row no-gutters>
-            <v-col cols="12"> <SentLineGraph :data="graphdata"></SentLineGraph></v-col>
+            <v-col cols="12">
+                <SentLineGraph :data="graphdata"></SentLineGraph
+            ></v-col>
         </v-row>
         <v-row no-gutters>
             <v-col cols="12">
@@ -40,7 +42,7 @@ export default {
                     hid: 'Sentiment Analysis',
                     name: 'Sentiment Analysis',
                     content:
-                        "Sentiment Analysis Full Stack project created by the Full stack Developer & Data Scientist Dimitri Lesas. Here you can pull and filter tweets from twitter and check the sentiment of the general public using various machine learning and deep learning models.",
+                        'Sentiment Analysis Full Stack project created by the Full stack Developer & Data Scientist Dimitri Lesas. Here you can pull and filter tweets from twitter and check the sentiment of the general public using various machine learning and deep learning models.',
                 },
             ],
         }
@@ -56,11 +58,12 @@ export default {
                     if (!(relevantdata.query in final)) {
                         final[relevantdata.query] = []
                     }
-                    final[relevantdata.query].push(
-                        {'sentiment': relevantdata.SentimentScore, 'date': relevantdata.created_at}
-                    )
+                    final[relevantdata.query].push({
+                        sentiment: relevantdata.SentimentScore,
+                        date: relevantdata.created_at,
+                    })
                 }
-                console.log("final")
+                console.log('final')
                 console.log(final)
                 return final
             } else {
@@ -91,6 +94,9 @@ export default {
                     data[datapoint].created_at
                 )
                 data[datapoint].query = query
+                data[datapoint].created_at = Date.parse(
+                    data[datapoint].created_at
+                )
             }
             return data
         },
