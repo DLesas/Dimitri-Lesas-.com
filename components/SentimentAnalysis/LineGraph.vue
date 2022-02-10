@@ -73,11 +73,11 @@ export default {
         // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
         this.xAxis = this.chart.xAxes.push(
             am5xy.DateAxis.new(this.root, {
-                maxDeviation: 0.2,
                 baseInterval: {
                     timeUnit: 'minute',
-                    count: 1,
+                    count: 3,
                 },
+                groupData: true,
                 renderer: am5xy.AxisRendererX.new(this.root, {}),
                 tooltip: am5.Tooltip.new(this.root, {}),
             })
@@ -109,9 +109,10 @@ export default {
         // https://www.amcharts.com/docs/v5/concepts/animations/
     },
     methods: {
-        SetData() {
-            console.log("complete data")
-            console.log(this.data)
+        async SetData() {
+            for (let index = 0; index < this.chart.series.length; index++) {
+                await this.chart.series.removeIndex(index).dispose();    
+            }
             for (const seriesname in this.data) {
                 const series = this.chart.series.push(
                     this.am5xy.LineSeries.new(this.root, {
@@ -129,8 +130,6 @@ export default {
                 // Add scrollbar
                 // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
                 // Set data
-                console.log('this.data[seriesname]')
-                console.log(this.data[seriesname])
                 
 
                 this.legend.itemContainers.template.events.on(
@@ -162,8 +161,6 @@ export default {
                 })
 
                 // It's is important to set legend data after all the events are set on template, otherwise events won't be copied
-                console.log(`chart series values:`)
-                console.log(this.chart.series.values)
                 this.legend.data.setAll(this.chart.series.values)
                 series.appear(1000)
             }
