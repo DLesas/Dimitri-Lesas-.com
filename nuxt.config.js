@@ -32,6 +32,7 @@ export default {
     plugins: [
         '~/plugins/vueTyper.client.js',
         '~/plugins/amchart.client.js',
+        '~/plugins/amcharttheme.client.js',
         '~/plugins/plotly.client.js',
         '~/plugins/Vue-pdf.client.js',
         '~/plugins/three.client.js',
@@ -48,7 +49,10 @@ export default {
         { path: '~/components/Layout/Settings', prefix: 'LaySet' },
         { path: '~/components/Layout/Portfolio', prefix: 'LayPort' },
         { path: '~/components/SentimentAnalysis/', prefix: 'Sent' },
-        { path: '~/components/SentimentAnalysis/Controls/', prefix: 'SentCont' },
+        {
+            path: '~/components/SentimentAnalysis/Controls/',
+            prefix: 'SentCont',
+        },
     ],
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

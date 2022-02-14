@@ -1,9 +1,20 @@
 <template>
     <v-container>
+        <v-row>
+
+        </v-row>
         <v-row no-gutters>
             <v-col cols="12">
                 <SentLineGraph :data="graphdata"></SentLineGraph
             ></v-col>
+        </v-row>
+        <v-row justify="space-around">
+            <v-col cols="12" md="5">
+                <SentBarGraph></SentBarGraph>
+            </v-col>
+            <v-col cols="12" md="5">
+                <SentSunBurstGraph></SentSunBurstGraph>
+            </v-col>
         </v-row>
         <v-row no-gutters>
             <v-col cols="12">
@@ -32,6 +43,7 @@ export default {
             data: [],
             loading: false,
             TimeSeries: {},
+            colorindex: 0
         }
     },
     head() {
@@ -63,7 +75,7 @@ export default {
                         date: relevantdata.created_at,
                     })
                 }
-                console.log('final')
+                console.log("final")
                 console.log(final)
                 return final
             } else {
@@ -80,7 +92,6 @@ export default {
             } else {
                 this.data = cleandata.sort(this.custom_sort)
             }
-            console.log(this.data)
         })
     },
     methods: {
@@ -97,7 +108,9 @@ export default {
                 data[datapoint].created_at = Date.parse(
                     data[datapoint].created_at
                 )
+                data[datapoint].color = this.$vuetify.theme.currentTheme.analogic_complement[this.colorindex]
             }
+            this.colorindex++
             return data
         },
         cleandates(d) {
