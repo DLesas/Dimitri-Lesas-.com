@@ -1,8 +1,6 @@
 <template>
     <v-container>
-        <v-row>
-
-        </v-row>
+        <v-row> </v-row>
         <v-row no-gutters>
             <v-col cols="12">
                 <SentLineGraph :data="graphdata"></SentLineGraph
@@ -10,7 +8,7 @@
         </v-row>
         <v-row justify="space-around">
             <v-col cols="12" md="5">
-                <SentBarGraph></SentBarGraph>
+                <SentBarGraph :data="bardata"></SentBarGraph>
             </v-col>
             <v-col cols="12" md="5">
                 <SentSunBurstGraph></SentSunBurstGraph>
@@ -43,7 +41,7 @@ export default {
             data: [],
             loading: false,
             TimeSeries: {},
-            colorindex: 0
+            colorindex: 0,
         }
     },
     head() {
@@ -75,12 +73,32 @@ export default {
                         date: relevantdata.created_at,
                     })
                 }
-                console.log("final")
-                console.log(final)
                 return final
             } else {
                 return final
             }
+        },
+        bardata() {
+            // eslint-disable-next-line no-unused-vars
+            const ffinal = []
+            const final = []
+            if (this.data.length > 0) {
+                for (const datapoint in this.data) {
+                    const relevantdata = this.data[datapoint]
+                    if (!(relevantdata.query in final)) {
+                        final[relevantdata.query] = {"query": relevantdata.query, "popularity": []}
+                    }
+                    final[relevantdata.query].popularity.push(relevantdata.SentimentScore)
+                }
+                for (const queryname in final) {
+                    final[queryname].popularity = final[queryname].popularity.reduce((partialSum, a) => partialSum + a, 0) / final[queryname].popularity.length
+                }
+                for (const queryname in final) {
+                    ffinal.push(final[queryname])
+                }
+            }
+            console.log(ffinal)
+            return ffinal
         },
     },
     watch: {},
@@ -108,7 +126,10 @@ export default {
                 data[datapoint].created_at = Date.parse(
                     data[datapoint].created_at
                 )
-                data[datapoint].color = this.$vuetify.theme.currentTheme.analogic_complement[this.colorindex]
+                data[datapoint].color =
+                    this.$vuetify.theme.currentTheme.analogic_complement[
+                        this.colorindex
+                    ]
             }
             this.colorindex++
             return data

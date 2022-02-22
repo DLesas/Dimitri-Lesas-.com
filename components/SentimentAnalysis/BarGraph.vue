@@ -1,5 +1,12 @@
 <template>
-    <v-card id="bargraph" raised rounded flat :height="400" :style="dark ? 'background: #121212' : ''">
+    <v-card
+        id="bargraph"
+        raised
+        rounded
+        flat
+        :height="400"
+        :style="dark ? 'background: #121212' : ''"
+    >
     </v-card>
 </template>
 
@@ -14,21 +21,35 @@ export default {
         },
     },
     data() {
-        return {}
+        return {
+            root: undefined,
+            chart: undefined,
+            xAxis: undefined,
+            yAxis: undefined,
+            am5xy: undefined,
+            am5: undefined,
+        }
     },
     computed: {
         dark() {
             return this.$vuetify.theme.dark
         },
     },
-    watch: {},
+    watch: {
+        data(newValue, oldValue) {
+            console.log(newValue)
+            if (Object.keys(newValue).length > 0) {
+                this.SetData(newValue, oldValue)
+            }
+        },
+    },
     mounted() {
-
         /* eslint-disable camelcase */
         /* eslint-disable no-unused-vars */
-        
+        console.log(this.data)
         const { am5, am5hierarchy, am5xy } = this.$am5()
-
+        this.am5xy = am5xy
+        this.am5 = am5
         const {
             am5themes_Animated,
             am5themes_Dark,
@@ -36,16 +57,16 @@ export default {
             am5themes_Responsive,
         } = this.$am5theme()
 
-        const root = am5.Root.new('bargraph')
+        this.root = am5.Root.new('bargraph')
 
         // Set themes
         // https://www.amcharts.com/docs/v5/concepts/themes/
-        root.setThemes([am5themes_Animated.new(root)])
+        this.root.setThemes([am5themes_Animated.new(this.root)])
 
         // Create chart
         // https://www.amcharts.com/docs/v5/charts/xy-chart/
-        const chart = root.container.children.push(
-            am5xy.XYChart.new(root, {
+        this.chart = this.root.container.children.push(
+            am5xy.XYChart.new(this.root, {
                 panX: true,
                 panY: true,
                 wheelX: 'panX',
@@ -55,12 +76,17 @@ export default {
 
         // Add cursor
         // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
-        const cursor = chart.set('cursor', am5xy.XYCursor.new(root, {}))
+        const cursor = this.chart.set(
+            'cursor',
+            am5xy.XYCursor.new(this.root, {})
+        )
         cursor.lineY.set('visible', false)
 
         // Create axes
         // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-        const xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 })
+        const xRenderer = am5xy.AxisRendererX.new(this.root, {
+            minGridDistance: 30,
+        })
         xRenderer.labels.template.setAll({
             rotation: -90,
             centerY: am5.p50,
@@ -68,106 +94,112 @@ export default {
             paddingRight: 15,
         })
 
-        const xAxis = chart.xAxes.push(
-            am5xy.CategoryAxis.new(root, {
+        this.xAxis = this.chart.xAxes.push(
+            am5xy.CategoryAxis.new(this.root, {
                 maxDeviation: 0.3,
-                categoryField: 'country',
+                categoryField: 'query',
                 renderer: xRenderer,
-                tooltip: am5.Tooltip.new(root, {}),
+                tooltip: am5.Tooltip.new(this.root, {}),
             })
         )
 
-        const yAxis = chart.yAxes.push(
-            am5xy.ValueAxis.new(root, {
+        this.yAxis = this.chart.yAxes.push(
+            am5xy.ValueAxis.new(this.root, {
                 maxDeviation: 0.3,
-                renderer: am5xy.AxisRendererY.new(root, {}),
+                renderer: am5xy.AxisRendererY.new(this.root, {}),
             })
         )
 
         // Create series
         // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-        const series = chart.series.push(
-            am5xy.ColumnSeries.new(root, {
-                name: 'Series 1',
-                xAxis,
-                yAxis,
-                valueYField: 'value',
-                sequencedInterpolation: true,
-                categoryXField: 'country',
-                tooltip: am5.Tooltip.new(root, {
-                    labelText: '{valueY}',
-                }),
-            })
-        )
-
-        series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5 })
-        series.columns.template.adapters.add('fill', (fill, target) => {
-            return chart.get('colors').getIndex(series.columns.indexOf(target))
-        })
-
-        series.columns.template.adapters.add('stroke', (stroke, target) => {
-            return chart.get('colors').getIndex(series.columns.indexOf(target))
-        })
 
         // Set data
-        const data = [
-            {
-                country: 'USA',
-                value: 2025,
-            },
-            {
-                country: 'China',
-                value: 1882,
-            },
-            {
-                country: 'Japan',
-                value: 1809,
-            },
-            {
-                country: 'Germany',
-                value: 1322,
-            },
-            {
-                country: 'UK',
-                value: 1122,
-            },
-            {
-                country: 'France',
-                value: 1114,
-            },
-            {
-                country: 'India',
-                value: 984,
-            },
-            {
-                country: 'Spain',
-                value: 711,
-            },
-            {
-                country: 'Netherlands',
-                value: 665,
-            },
-            {
-                country: 'Russia',
-                value: 580,
-            },
-            {
-                country: 'South Korea',
-                value: 443,
-            },
-            {
-                country: 'Canada',
-                value: 441,
-            },
-        ]
-
-        xAxis.data.setAll(data)
-        series.data.setAll(data)
+        /* 
+        [{
+  country: "USA",
+  value: 2025
+}, {
+  country: "China",
+  value: 1882
+}, {
+  country: "Japan",
+  value: 1809
+}, {
+  country: "Germany",
+  value: 1322
+}, {
+  country: "UK",
+  value: 1122
+}, {
+  country: "France",
+  value: 1114
+}, {
+  country: "India",
+  value: 984
+}, {
+  country: "Spain",
+  value: 711
+}, {
+  country: "Netherlands",
+  value: 665
+}, {
+  country: "Russia",
+  value: 580
+}, {
+  country: "South Korea",
+  value: 443
+}, {
+  country: "Canada",
+  value: 441
+}]; */
 
         // Make stuff animate on load
         // https://www.amcharts.com/docs/v5/concepts/animations/
-        series.appear(1000)
-        chart.appear(1000, 100)
+        this.chart.appear(1000, 100)
+    },
+    methods: {
+        SetData(newValue, oldValue) {
+            this.chart.series.clear()
+            const series = this.chart.series.push(
+                this.am5xy.ColumnSeries.new(this.root, {
+                    name: 'query',
+                    xAxis: this.xAxis,
+                    yAxis: this.yAxis,
+                    valueYField: 'popularity',
+                    sequencedInterpolation: true,
+                    categoryXField: 'query',
+                    tooltip: this.am5.Tooltip.new(this.root, {
+                        labelText: '{valueY}',
+                    }),
+                })
+            )
+            series.columns.template.setAll({
+                cornerRadiusTL: 5,
+                cornerRadiusTR: 5,
+            })
+            series.columns.template.adapters.add('fill', (fill, target) => {
+                return this.chart
+                    .get('colors')
+                    .getIndex(series.columns.indexOf(target))
+            })
+
+            series.columns.template.adapters.add('stroke', (stroke, target) => {
+                return this.chart
+                    .get('colors')
+                    .getIndex(series.columns.indexOf(target))
+            })
+            series.data.setAll(newValue)
+            series.appear(1000)
+
+            // eslint-disable-next-line no-unused-vars
+
+            // Add scrollbar
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+            // Set data
+
+            // It's is important to set legend data after all the events are set on template, otherwise events won't be copied
+            this.xAxis.data.setAll(this.data)
+        },
     },
 }
 </script>

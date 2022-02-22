@@ -86,11 +86,11 @@ export default {
         this.xAxis = this.chart.xAxes.push(
             am5xy.DateAxis.new(this.root, {
                 baseInterval: {
-                    timeUnit: 'seconds',
+                    timeUnit: 'milliseconds',
                     count: 1,
                 },
                 groupData: true,
-                groupCount: 50,
+                groupCount: 200,
                 renderer: am5xy.AxisRendererX.new(this.root, {}),
                 tooltip: am5.Tooltip.new(this.root, {}),
             })
