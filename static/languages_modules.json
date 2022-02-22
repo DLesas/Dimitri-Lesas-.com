@@ -2,7 +2,7 @@
     "Python" : {
         "name" : "Python",
         "type" : "Language",
-        "icon" : "Languages & Frameworks/python.svg",
+        "icon" : "/Languages & Frameworks/python.svg",
         "link" : "https://en.wikipedia.org/wiki/Python_(programming_language)",
         "brief" : "General Programming Language with specialism in Data Science",
         "full" : "",
@@ -17,7 +17,7 @@
     "Javascript" : {
         "name" : "Javascript",
         "type" : "Language",
-        "icon" : "Languages & Frameworks/javascript.svg",
+        "icon" : "/Languages & Frameworks/javascript.svg",
         "link" : "https://en.wikipedia.org/wiki/JavaScript",
         "brief" : "General Programming Language with specialism in event-driven computation such as websites",
         "full" : "",
@@ -30,8 +30,8 @@
     "AWS" : {
         "name" : "Amazon Web Services",
         "type" : "System",
-        "icon" : "Languages & Frameworks/Aws.svg",
-        "dark" : "Languages & Frameworks/Aws_Dark.svg",
+        "icon" : "/Languages & Frameworks/Aws.svg",
+        "dark" : "/Languages & Frameworks/Aws_Dark.svg",
         "link" : "https://aws.amazon.com/what-is-aws/?nc1=f_cc",
         "brief" : "Leading Cloud Platform from Amazon, used to build servers/systems and much more",
         "full" : "",
@@ -44,7 +44,7 @@
     "D3" : {
         "name" : "Data Driven Documents",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/d3js-icon.svg",
+        "icon" : "/Languages & Frameworks/d3js-icon.svg",
         "link" : "https://d3js.org/",
         "brief" : "Data Visualisation Library based on Javascript, allows for custom-made eye catching interactive visuals on websites",
         "full" : "",
@@ -57,7 +57,7 @@
     "Axios" : {
         "name" : "Axios",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/Axios-icon.png",
+        "icon" : "/Languages & Frameworks/Axios-icon.png",
         "link" : "https://axios-http.com/docs/intro" ,
         "brief" : "Promise-based HTTP Client; used to get data via api's",
         "full" : "",
@@ -70,7 +70,7 @@
     "Django" : {
         "name" : "Django",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/django-icon.svg",
+        "icon" : "/Languages & Frameworks/django-icon.svg",
         "link" : "https://www.djangoproject.com/",
         "brief" : "Full-fledged Backend Framework",
         "full" : "",
@@ -82,8 +82,8 @@
     "Flask" : {
         "name" : "Flask",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/Flask.svg",
-        "dark" : "Languages & Frameworks/Flask_Dark.png",
+        "icon" : "/Languages & Frameworks/Flask.svg",
+        "dark" : "/Languages & Frameworks/Flask_Dark.png",
         "link" : "https://en.wikipedia.org/wiki/Flask_(web_framework)",
         "brief" : "Micro Backend Framework",
         "full" : "",
@@ -95,7 +95,7 @@
     "Git" : {
         "name" : "Git",
         "type" : "Software",
-        "icon" : "Languages & Frameworks/git-icon.svg",
+        "icon" : "/Languages & Frameworks/git-icon.svg",
         "link" : "https://git-scm.com/",
         "brief" : "CI/CD Software",
         "full" : "",
@@ -108,7 +108,7 @@
     "GSAP" : {
         "name" : "Green Sock",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/gsap-greensock.svg",
+        "icon" : "/Languages & Frameworks/gsap-greensock.svg",
         "link" : "https://greensock.com/",
         "brief" : "Javascript Framework to implement animations",
         "full" : "",
@@ -120,7 +120,7 @@
     "Html" : {
         "name" : "Html 5",
         "type" : "Language",
-        "icon" : "Languages & Frameworks/HTML5.svg",
+        "icon" : "/Languages & Frameworks/HTML5.svg",
         "link" : "https://en.wikipedia.org/wiki/HTML5",
         "brief" : "Mark up Language used to produce websites",
         "full" : "",
@@ -132,7 +132,7 @@
     "Jupyter" : {
         "name" : "Jupyter",
         "type" : "Software",
-        "icon" : "Languages & Frameworks/jupyter.svg",
+        "icon" : "/Languages & Frameworks/jupyter.svg",
         "link" : "https://jupyter.org/",
         "brief" : "IDE for python specialised in Data Visualisation/Analysis",
         "full" : "",
@@ -145,7 +145,7 @@
     "Plotly" : {
         "name" : "Plotly",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/Plotly.svg",
+        "icon" : "/Languages & Frameworks/Plotly.svg",
         "link" : "https://plotly.com/graphing-libraries/",
         "brief" : "Interactive Graphing Library for both Python and Javascript",
         "full" : "",
@@ -158,7 +158,7 @@
     "Keras" : {
         "name" : "Keras",
         "type" : "Module",
-        "icon" :"Languages & Frameworks/Keras_logo.svg",
+        "icon" : "/Languages & Frameworks/Keras_logo.svg",
         "link" : "https://keras.io/about/",
         "brief" : "Deep Learning Framework built on top of tensorflow, provides a layer of abstraction to make building well known neural networks very easy",
         "full" : "",
@@ -170,7 +170,7 @@
     "Linux" : {
         "name" : "Linux",
         "type" : "System",
-        "icon" : "Languages & Frameworks/linux-tux.svg",
+        "icon" : "/Languages & Frameworks/linux-tux.svg",
         "link" : "https://en.wikipedia.org/wiki/Linux",
         "brief" : " Open-Source operating system typically used for cloud computing/Back-end systems.",
         "full" : "",
@@ -182,7 +182,7 @@
     "Matplotlib" : {
         "name" : "Matplotlib",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/Matplotlib_icon.svg",
+        "icon" : "/Languages & Frameworks/Matplotlib_icon.svg",
         "link" : "https://matplotlib.org/",
         "brief" : "Extremely versatile plotting framework",
         "full" : "",
@@ -194,7 +194,7 @@
     "Excel" : {
         "name" : "Excel",
         "type" : "Software",
-        "icon" : "Languages & Frameworks/Microsoft_Office_Excel.svg",
+        "icon" : "/Languages & Frameworks/Microsoft_Office_Excel.svg",
         "link" : "https://en.wikipedia.org/wiki/Microsoft_Excel",
         "brief" : "Tabular software allowing for quick analysis and visualisation",
         "full" : "",
@@ -207,7 +207,7 @@
     "Power-BI" : {
         "name" : "Power-BI",
         "type" : "Software",
-        "icon" : "Languages & Frameworks/New_Power_BI_Logo.svg",
+        "icon" : "/Languages & Frameworks/New_Power_BI_Logo.svg",
         "link" : "https://powerbi.microsoft.com/en-us/what-is-power-bi/",
         "brief" : "Data visualisation software allowing for the easy creation of interactive visuals whilst also providing tools for data analysis via the DAX Language",
         "full" : "",
@@ -220,7 +220,7 @@
     "Numpy" : {
         "name" : "Numpy",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/numpy.svg",
+        "icon" : "/Languages & Frameworks/numpy.svg",
         "link" : "https://numpy.org/",
         "brief" : "Library aimed at efficient manipulation of Data arrays, especially useful for data analysis",
         "full" : "",
@@ -233,7 +233,7 @@
     "Nuxt" : {
         "name" : "Nuxt",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/nuxt-icon.svg",
+        "icon" : "/Languages & Frameworks/nuxt-icon.svg",
         "link" : "https://en.wikipedia.org/wiki/Nuxt.js",
         "brief" : "Framework allowing Vue to be used as a Universal application rather than a SPA; Greatly improves SEO",
         "full" : "",
@@ -246,7 +246,7 @@
     "OpenCV" : {
         "name" : "OpenCV",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/opencv.svg",
+        "icon" : "/Languages & Frameworks/opencv.svg",
         "link" : "https://en.wikipedia.org/wiki/OpenCV",
         "brief" : "Allows for efficient operations & more such as deep learning on images, videos, etc...",
         "full" : "",
@@ -260,7 +260,7 @@
     "Pandas": {
         "name" : "Pandas",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/Pandas_mark.svg",
+        "icon" : "/Languages & Frameworks/Pandas_mark.svg",
         "link" : "https://pandas.pydata.org/",
         "brief" : "Built on top of Numpy, allows to work with tables, I refer to it as excel on steroids",
         "full" : "",
@@ -273,7 +273,7 @@
     "PostgreSQL" : {
         "name" : "PostgreSQL",
         "type" : "Language",
-        "icon" : "Languages & Frameworks/postgresql.svg",
+        "icon" : "/Languages & Frameworks/postgresql.svg",
         "link" : "https://www.postgresql.org/",
         "brief" : "Relational database using the SQL language",
         "full" : "",
@@ -286,7 +286,7 @@
     "Pycharm" : {
         "name" : "Pycharm",
         "type" : "Software",
-        "icon" : "Languages & Frameworks/pycharm.svg",
+        "icon" : "/Languages & Frameworks/pycharm.svg",
         "link" : "https://www.jetbrains.com/pycharm/",
         "brief" : "Python IDE specialised for large projects, such as back-ends",
         "full" : "",
@@ -298,7 +298,7 @@
     "Pytorch" : {
         "name" : "Pytorch",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/pytorch.svg",
+        "icon" : "/Languages & Frameworks/pytorch.svg",
         "link" : "https://pytorch.org/",
         "brief" : "Deep learning framework built by Facebook, specialised in building unique/new neural networks",
         "full" : "",
@@ -310,7 +310,7 @@
     "Scikit-Learn" : {
         "name" : "Scikit-Learn",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/Scikit.svg",
+        "icon" : "/Languages & Frameworks/Scikit.svg",
         "link" : "https://scikit-learn.org/stable/",
         "brief" : "Machine Learning framework, allows for the creation of efficient data pipelines",
         "full" : "",
@@ -324,7 +324,7 @@
     "Seaborn" : {
         "name" : "Seaborn",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/Seaborn.svg",
+        "icon" : "/Languages & Frameworks/Seaborn.svg",
         "link" : "https://seaborn.pydata.org/",
         "brief" : "Built on top of Matplotlib, provides a layer of abstraction to make nice statistical graphs easier to produce",
         "full" : "",
@@ -336,7 +336,7 @@
     "Selenium" : {
         "name" : "Selenium",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/selenium.svg",
+        "icon" : "/Languages & Frameworks/selenium.svg",
         "link" : "https://www.selenium.dev/",
         "brief" : "Framework with the ability to automate browsers, useful in automating extracting/downloading data from websites on a regular basis",
         "full" : "",
@@ -348,7 +348,7 @@
     "Tensorflow" : {
         "name" : "Tensorflow",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/tensorflow.svg",
+        "icon" : "/Languages & Frameworks/tensorflow.svg",
         "link" : "https://www.tensorflow.org/",
         "brief" : "Deep learning framework built by Google, specialised in building vast neural networks fast",
         "full" : "",
@@ -360,7 +360,7 @@
     "Vue" : {
         "name" : "Vue",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/vue.svg",
+        "icon" : "/Languages & Frameworks/vue.svg",
         "link" : "https://vuejs.org/",
         "brief" : "Javascript Framework to build reactive single page application websites",
         "full" : "",
@@ -372,7 +372,7 @@
     "Vuetify" : {
         "name" : "Vuetify",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/vuetifyjs.svg",
+        "icon" : "/Languages & Frameworks/vuetifyjs.svg",
         "link" : "https://vuetifyjs.com/en/",
         "brief" : "Material design framework, minimises the amount of CSS & HTML needed to build a nice looking website",
         "full" : "",
@@ -384,7 +384,7 @@
     "Vuex" : {
         "name" : "Vuex",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/vuex.png",
+        "icon" : "/Languages & Frameworks/vuex.png",
         "link" : "https://vuex.vuejs.org/",
         "brief" : "State management for Vuejs Websites",
         "full" : "",
@@ -396,7 +396,7 @@
     "NodeJS" : {
         "name" : "NodeJS",
         "type" : "Framework",
-        "icon" : "Languages & Frameworks/nodejs.svg",
+        "icon" : "/Languages & Frameworks/nodejs.svg",
         "link" : "https://vuex.vuejs.org/",
         "brief" : "Framework allowing Javascript to be run without a web browser, allows the use of javascript as a backend language",
         "full" : "",
@@ -408,7 +408,7 @@
     "ThreeJS" : {
         "name" : "ThreeJS",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/Threejs.svg",
+        "icon" : "/Languages & Frameworks/Threejs.svg",
         "link" : "https://threejs.org/",
         "brief" : "Javascript framework for rendering 3D Scenes/Objects in the browser using WebGL (javascript api that provides access to the computers GPU)",
         "full" : "",
@@ -421,7 +421,7 @@
     "amCharts" : {
         "name" : "amCharts",
         "type" : "Module",
-        "icon" : "Languages & Frameworks/amCharts.png",
+        "icon" : "/Languages & Frameworks/amCharts.png",
         "link" : "https://www.amcharts.com/",
         "brief" : "Interactive Charting Library for javascript with physics involved",
         "full" : "",

@@ -26,6 +26,7 @@
     "vue-compare-image": "^0.2.0",
     "vue-cookies-reactive": "^2.1.1",
     "vue-pdf": "^4.3.0",
+    "vue-tour": "^2.0.0",
     "vue-typer": "^1.2.0",
     "vuetify": "^2.5.12",
     "webpack": "^4.46.0"

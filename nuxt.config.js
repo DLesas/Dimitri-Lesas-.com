@@ -38,7 +38,7 @@ export default {
         '~/plugins/three.client.js',
         '~/plugins/Simplex.js',
         '~/plugins/Img-Comparison.client.js',
-        '~/plugins/Vue-Cookies.client.js',
+        '~/plugins/Vue-Cookies.client.js'
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components

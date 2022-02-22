@@ -1,35 +1,44 @@
 <template>
-    <v-app-bar
-        clipped-left
-        clipped-right
-        elevation="0"
-        fixed
-        :dark="dark"
-        :app="app"
-        style="
-            backdrop-filter: blur(4px);
-            background-color: rgba(255, 255, 255, 0);
-        "
-    >
-        <v-app-bar-nav-icon
-            id="navicon"
-            color="primary"
-            style="z-index: 100"
-            @click.stop="
-                $emit('EnableSide')
-                sidebar = !sidebar
-                movetitle()
+    <div>
+        <v-app-bar
+            clipped-left
+            clipped-right
+            elevation="0"
+            fixed
+            :dark="dark"
+            :app="app"
+            style="
+                backdrop-filter: blur(4px);
+                background-color: rgba(255, 255, 255, 0);
             "
-        />
-        <v-toolbar-title id="toolbartitle" class="ma-0 pa-0" style="z-index: -10">
-            <LayTitle />
-        </v-toolbar-title>
-        <v-spacer />
-        <v-btn v-ripple="{ class: `ripple--text` }" depressed icon>
-            <v-icon color="primary"> mdi-bell </v-icon>
-        </v-btn>
-        <settings-pop />
-    </v-app-bar>
+        >
+            <v-app-bar-nav-icon
+                id="navicon"
+                color="primary"
+                style="z-index: 100"
+                @click.stop="
+                    $emit('EnableSide')
+                    sidebar = !sidebar
+                    movetitle()
+                "
+            />
+            <v-toolbar-title
+                id="toolbartitle"
+                class="ma-0 pa-0"
+                style="z-index: -10"
+            >
+                <LayTitle />
+            </v-toolbar-title>
+            <v-spacer />
+            <v-btn v-ripple="{ class: `ripple--text` }" depressed icon>
+                <v-icon color="primary"> mdi-bell </v-icon>
+            </v-btn>
+            <div id="settings">
+                <settings-pop />
+            </div>
+            <!---tooltip target="settings"></tooltip---->
+        </v-app-bar>
+    </div>
 </template>
 
 <script>
@@ -65,7 +74,7 @@ export default {
         },
         mobile(newValue) {
             this.handletitle(newValue)
-        }
+        },
     },
     mounted() {
         if (this.route !== '/') {
@@ -74,7 +83,7 @@ export default {
             this.app = false
         }
         this.tomove = 175
-        this.mobile? this.handletitle(this.mobile) : this.tomove = 170
+        this.mobile ? this.handletitle(this.mobile) : (this.tomove = 170)
     },
     methods: {
         movetitle() {
@@ -91,10 +100,11 @@ export default {
             }
         },
         handletitle(value) {
-            value? this.$gsap.to('#toolbartitle', { x: -20, duration: 0.3 }) : this.$gsap.to('#toolbartitle', { x: 0, duration: 0.3 })
-        }
+            value
+                ? this.$gsap.to('#toolbartitle', { x: -20, duration: 0.3 })
+                : this.$gsap.to('#toolbartitle', { x: 0, duration: 0.3 })
+        },
     },
 }
 </script>
-
 <style lang="scss" scoped></style>

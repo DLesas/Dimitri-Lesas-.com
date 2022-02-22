@@ -116,7 +116,7 @@
                         order-md="2"
                     >
                         <img
-                            src="Person/Top Lad.jpg"
+                            src="/Person/Top Lad.jpg"
                             class="rounded-lg"
                             width="100%"
                         />

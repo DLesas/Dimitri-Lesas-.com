@@ -346,7 +346,13 @@ export default {
 .v-list ::v-deep .v-list-item--active {
     color: var(--v-secondary-base);
 }
-::v-deep .v-chip .v-chip__content {
+::v-deep .v-chip {
+    color: white !important
+}
+
+</style>
+<style>
+.theme--light.v-chip {
     color: white !important
 }
 </style>

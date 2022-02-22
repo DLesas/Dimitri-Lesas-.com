@@ -176,8 +176,8 @@ export default {
                 ? 'Drag a node to see more information regarding skill'
                 : 'Drag/Hover over a node to see more information regarding skill/language',
             selectedicon: this.$vuetify.theme.dark
-                ? 'Languages & Frameworks/default_dark.gif'
-                : 'Languages & Frameworks/default.gif',
+                ? '/Languages & Frameworks/default_dark.gif'
+                : '/Languages & Frameworks/default.gif',
             alt: 'Image portraying default hovering icon, pre seeing my prograaming and data science skills',
             selectedtextcolor: 'primary',
             selectedcolor: 'primary',
