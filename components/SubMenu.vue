@@ -158,7 +158,8 @@ export default {
                 this.icon = this.iconon
             }
         },
-        resetdefaults() {
+        async resetdefaults() {
+            await this.$cookies.keys().forEach(cookie => this.$cookies.remove(cookie))
             const primary = '#03A9F4'
             const secondary = '#FF5722'
             const analogic = [

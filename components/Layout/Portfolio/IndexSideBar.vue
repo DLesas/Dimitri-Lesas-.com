@@ -1,6 +1,7 @@
 <template>
     <div>
         <v-navigation-drawer
+            id="nav"
             v-if="['md', 'lg', 'xl'].includes(view)"
             mobile-breakpoint="960"
             app
@@ -50,6 +51,7 @@
             </v-container>
         </v-navigation-drawer>
         <v-bottom-navigation
+            id="nav"
             v-else
             app
             :style="dark ? 'background: #121212' : ''"
@@ -91,6 +93,7 @@
                 </v-row>
             </v-container>
         </v-bottom-navigation>
+        <Tooltip :steps="steps" name="PortfolioIndex"></Tooltip>
     </div>
 </template>
 
@@ -102,7 +105,13 @@ export default {
             filteredskills: [0, 1, 2],
             btn: 'Unselect all',
             Skillscolors: [],
-            phoneheight: 200
+            phoneheight: 200,
+            steps: [
+                {
+                    target: "nav",
+                    Text: "Here you can filter the projects for the skills you wish to see"
+                }
+            ]
         }
     },
     computed: {
