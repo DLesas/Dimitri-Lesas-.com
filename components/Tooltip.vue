@@ -123,8 +123,8 @@ export default {
             vue.interval = setInterval(() => {
                 vue.value = vue.value + 100 / (vue.timetoshow / 100)
                 if (vue.value >= 100) {
-                    clearInterval(vue.interval)
                     if (vue.steps.length > vue.index + 1) {
+                        clearInterval(vue.interval)
                         vue.NextStep()
                     } else {
                         vue.ClearPopper()
