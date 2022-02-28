@@ -77,6 +77,7 @@ export default {
             popper: undefined,
             tooltip: undefined,
             index: 0,
+            interval: undefined,
             value: 0,
         }
     },
@@ -119,10 +120,10 @@ export default {
         },
         StartInterval() {
             const vue = this
-            const interval = setInterval(() => {
+            vue.interval = setInterval(() => {
                 vue.value = vue.value + 100 / (vue.timetoshow / 100)
                 if (vue.value >= 100) {
-                    clearInterval(interval)
+                    clearInterval(vue.interval)
                     if (vue.steps.length > vue.index + 1) {
                         vue.NextStep()
                     } else {
@@ -134,7 +135,8 @@ export default {
         ClearPopper() {
             this.popper.destroy()
             this.show = false
-            this.$cookies.set(this.name, true, '10D')
+            this.$cookies.set(this.name, true, '5D')
+            clearInterval(this.interval)
         },
         getCookie(cookieName) {
             const reg = new RegExp(

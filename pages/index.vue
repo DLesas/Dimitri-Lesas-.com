@@ -19,7 +19,7 @@
                                         repeat="0"
                                         :text="text2"
                                         :class="dark ? 'dark' : ''"
-                                        type-delay="97"
+                                        type-delay="82"
                                         @completed="render2 = true"
                                     ></vue-typer>
                                     <vue-typer
@@ -27,7 +27,7 @@
                                         text="Dimitri Lesas."
                                         repeat="0"
                                         :class="dark ? 'dark name' : 'name'"
-                                        type-delay="112"
+                                        type-delay="100"
                                         @completed="render2finished"
                                     ></vue-typer>
                                 </div>
@@ -37,7 +37,7 @@
                                         repeat="0"
                                         :class="dark ? 'dark' : ''"
                                         text="A self-taught programmer and a finance BSc graduate hailing from"
-                                        type-delay="27"
+                                        type-delay="17"
                                         style="word-wrap: normal"
                                         @completed="render4 = true"
                                     ></vue-typer>
@@ -51,7 +51,7 @@
                                             ref="unityper"
                                             repeat="0"
                                             text="The University of Southampton."
-                                            type-delay="30"
+                                            type-delay="20"
                                             :class="
                                                 dark
                                                     ? 'dark university'
@@ -66,7 +66,7 @@
                                         v-if="render5"
                                         repeat="0"
                                         text="Full stack developer & data scientist with"
-                                        type-delay="29"
+                                        type-delay="19"
                                         :class="dark ? 'dark' : ''"
                                         @completed="render6 = true"
                                     ></vue-typer>
@@ -75,7 +75,7 @@
                                         :class="dark ? 'dark name' : 'name'"
                                         repeat="0"
                                         text="expertise in extracting decision making insights from data."
-                                        type-delay="42"
+                                        type-delay="32"
                                         @completed="render6finished"
                                     ></vue-typer>
                                     <!--- expertise in desining data driven user experiences --->
@@ -87,7 +87,7 @@
                                         :class="dark ? 'dark' : ''"
                                         repeat="0"
                                         text="I'm passionate about using data to"
-                                        type-delay="52"
+                                        type-delay="42"
                                         @completed="render8 = true"
                                     ></vue-typer>
                                     <vue-typer
@@ -99,7 +99,7 @@
                                         pre-erase-delay="1000"
                                         erase-style="backspace"
                                         erase-delay="13"
-                                        type-delay="57"
+                                        type-delay="37"
                                         @completed="rendertextfinished"
                                     ></vue-typer>
                                     <!--- expertise in desining data driven user experiences --->

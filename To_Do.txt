@@ -3,7 +3,6 @@
 - Do images/Gifs for each portfolio project [Easy, 30 mins]
 - Do Skills full explanation and tie that to skills page [Easy, 45 mins]
 - Update Resume [Easy, 3 hours]
-- Sort out pages Heads for SEO [Medium, 3 hours]
 - look to minimize frameworks we are importing and also look to only import them on the relevant page [Hard, 2 hours]
 - Make dark and light mode switch more playful [Medium, 1 1/2 hours]
 - get a better image for myself on the About page [Easy 1 hour]
