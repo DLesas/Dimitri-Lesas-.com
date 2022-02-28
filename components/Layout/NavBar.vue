@@ -58,6 +58,10 @@ export default {
                 {
                     target: "settings",
                     text: "You can customise this website to your liking here"
+                },
+                {
+                    target: "noti",
+                    text: "Here you will see notifications pop up based on your actions"
                 }
             ],
             tool : false
