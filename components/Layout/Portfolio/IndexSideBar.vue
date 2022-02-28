@@ -1,7 +1,6 @@
 <template>
     <div>
         <v-navigation-drawer
-            id="nav"
             v-if="['md', 'lg', 'xl'].includes(view)"
             mobile-breakpoint="960"
             app
@@ -32,6 +31,7 @@
                             </v-col>
                         </v-row>
                         <v-chip-group
+                            id="nav"
                             v-model="filteredskills"
                             class="pt-10"
                             multiple
@@ -51,7 +51,6 @@
             </v-container>
         </v-navigation-drawer>
         <v-bottom-navigation
-            id="nav"
             v-else
             app
             :style="dark ? 'background: #121212' : ''"
@@ -74,7 +73,7 @@
                         >
                     </v-row>
                     <v-row>
-                        <v-chip-group v-model="filteredskills" multiple column>
+                        <v-chip-group id="nav" v-model="filteredskills" multiple column>
                             <v-chip
                                 v-for="(skill, i) in Skills"
                                 :key="i"
@@ -109,7 +108,7 @@ export default {
             steps: [
                 {
                     target: "nav",
-                    Text: "Here you can filter the projects for the skills you wish to see"
+                    text: "Here you can filter the projects for the skills you wish to see"
                 }
             ]
         }

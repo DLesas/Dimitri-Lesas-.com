@@ -1,13 +1,17 @@
 <template>
     <v-card
-        class="ma-0 pa-0 pt-1"
+        v-if="show"
+        :id="name"
+        class="ma-0 pa-0 pt-1 tooltip"
         raised
         rounded
         outlined
-        v-if="show"
-        id="tooltip"
+        style="z-index: 10000"
     >
-        <v-container class="pa-2 pb-4" style="max-width: 200px; min-width: 100px">
+        <v-container
+            class="pa-2 pb-4"
+            style="max-width: 200px; min-width: 100px"
+        >
             <v-row no-gutters>
                 <v-col cols="12" style="text-align: center">
                     {{ text }}
@@ -19,8 +23,16 @@
                         Next
                     </v-btn>
                 </v-col>
-                <v-col :cols="steps.length > index + 1 ? 4: 10">
-                    <v-btn block color="secondary" small @click="ClearPopper()"> Done </v-btn>
+                <v-col :cols="steps.length > index + 1 ? 4 : 6">
+                    <v-btn
+                        block
+                        color="secondary"
+                        small
+                        :x-small="steps.length > index + 1 ? false : true"
+                        @click="ClearPopper()"
+                    >
+                        Done
+                    </v-btn>
                 </v-col>
             </v-row>
         </v-container>
@@ -49,7 +61,7 @@ export default {
         timetoshow: {
             type: Number,
             default() {
-                return 1500000
+                return 15000
             },
         },
         name: {
@@ -89,10 +101,10 @@ export default {
     async mounted() {
         /* eslint-disable no-undef */
         const cookie = await this.getCookie(this.name)
-        if (cookie !== "true") {
+        if (cookie !== 'true') {
             this.show = true
             this.$nextTick(() => {
-                this.tooltip = document.querySelector('#tooltip')
+                this.tooltip = document.querySelector('#' + `${this.name}`)
                 const targetquery = document.querySelector(this.target)
                 this.popper = Popper.createPopper(targetquery, this.tooltip)
                 this.StartInterval()
@@ -139,7 +151,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#tooltip {
+.tooltip {
     font-weight: bold;
     padding: 4px 8px;
     font-size: 13px;
@@ -210,19 +222,19 @@ export default {
     content: '';
     transform: rotate(45deg);
 }
-#tooltip[data-popper-placement^='top'] > #arrow {
+.tooltip[data-popper-placement^='top'] > #arrow {
     bottom: -4px;
 }
 
-#tooltip[data-popper-placement^='bottom'] > #arrow {
+.tooltip[data-popper-placement^='bottom'] > #arrow {
     top: -4px;
 }
 
-#tooltip[data-popper-placement^='left'] > #arrow {
+.tooltip[data-popper-placement^='left'] > #arrow {
     right: -4px;
 }
 
-#tooltip[data-popper-placement^='right'] > #arrow {
+.tooltip[data-popper-placement^='right'] > #arrow {
     left: -4px;
 }
 </style>
