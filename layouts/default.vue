@@ -43,7 +43,7 @@
                         <v-btn
                             light
                             color="secondary"
-                            large
+                            :large="!mobile"
                             width="100%"
                             nuxt
                             to="/Contact"

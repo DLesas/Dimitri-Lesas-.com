@@ -30,16 +30,18 @@
                 <LayTitle />
             </v-toolbar-title>
             <v-spacer />
-            <v-btn id="noti" v-ripple="{ class: `ripple--text` }" depressed icon>
+            <v-btn
+                id="noti"
+                v-ripple="{ class: `ripple--text` }"
+                depressed
+                icon
+            >
                 <v-icon color="primary"> mdi-bell </v-icon>
             </v-btn>
             <div id="settings">
                 <settings-pop />
             </div>
-            <Tooltip
-                :steps="steps"
-                name="NavBar"
-            ></Tooltip>
+            <Tooltip :steps="steps" name="NavBar"></Tooltip>
         </v-app-bar>
     </div>
 </template>
@@ -56,15 +58,15 @@ export default {
             style: 'background-color: rgba(255, 255, 255, 0.3)',
             steps: [
                 {
-                    target: "settings",
-                    text: "You can customise this website to your liking here"
+                    target: 'settings',
+                    text: 'You can customise everything about this website to your liking here',
                 },
                 {
-                    target: "noti",
-                    text: "Here you will see notifications pop up based on your actions"
-                }
+                    target: 'noti',
+                    text: 'Here you will see notifications pop up based on your actions',
+                },
             ],
-            tool : false
+            tool: false,
         }
     },
     computed: {

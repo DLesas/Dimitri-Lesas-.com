@@ -61,7 +61,7 @@ export default {
         timetoshow: {
             type: Number,
             default() {
-                return 15000
+                return 25000
             },
         },
         name: {

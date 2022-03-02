@@ -115,11 +115,18 @@
                         order-sm="2"
                         order-md="2"
                     >
-                        <img
+                        <v-img
                             src="/Person/Top Lad.jpg"
                             class="rounded-lg"
                             width="100%"
-                        />
+                        >
+                            <div style="background-color: white; width: 17px; height: 10px; position: absolute; right: 47.2%; top: 34.2%; border-radius: 50%; transform: rotate(23deg);">
+                                <div style="background-color: black; width: 6px; height:6px; border-radius: 50%; right: 56%; top: 36%; position: absolute"></div>
+                            </div>
+                            <div style="background-color: white; width: 17px; height: 10px; position: absolute; right: 41.2%; top: 39.2%; border-radius: 50%; transform: rotate(23deg);">
+                                <div style="background-color: black; width: 6px; height:6px; border-radius: 50%; right: 56%; top: 36%; position: absolute"></div>
+                            </div>
+                        </v-img>
                     </v-col>
                 </v-row>
             </v-main>

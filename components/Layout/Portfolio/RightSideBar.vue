@@ -51,8 +51,8 @@
                 </v-list>
             </v-container>
         </div>
-        <div v-else-if="route = '/Portfolio/Sentiment_Analysis'" style="height: 100%">
-            <v-container slot="prepend" class="text-h6 primary--text text--darken-4"> Controls </v-container>
+        <div v-else-if="route = '/Portfolio/Sentiment_Analysis'" style="height: 100%; overflow-y: hidden">
+            <v-container class="text-h6 primary--text text--darken-4"> Controls </v-container>
             <v-container fluid style="height: 90%">
                 <SentControl></SentControl>
             </v-container>
@@ -64,6 +64,7 @@
                     v-for="(Lang, j) in LanguageTags"
                     :key="j"
                     :color="Languagecolors[j]"
+                    small
                 >
                     {{ Lang }}
                 </v-chip>
@@ -74,6 +75,7 @@
                     v-for="(Tag, i) in ModuleTags"
                     :key="i"
                     :color="Modulecolors[i]"
+                    small
                 >
                     {{ Tag }}
                 </v-chip>
