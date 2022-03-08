@@ -120,12 +120,60 @@
                             class="rounded-lg"
                             width="100%"
                         >
-                            <div style="background-color: white; width: 17px; height: 10px; position: absolute; right: 47.2%; top: 34.2%; border-radius: 50%; transform: rotate(23deg);">
-                                <div style="background-color: black; width: 6px; height:6px; border-radius: 50%; right: 56%; top: 36%; position: absolute"></div>
-                            </div>
-                            <div style="background-color: white; width: 17px; height: 10px; position: absolute; right: 41.2%; top: 39.2%; border-radius: 50%; transform: rotate(23deg);">
-                                <div style="background-color: black; width: 6px; height:6px; border-radius: 50%; right: 56%; top: 36%; position: absolute"></div>
-                            </div>
+                            <div class="lefteye"></div>
+                            <div class="righteye"></div>
+                            <!---div>
+                                <div
+                                    style="
+                                        background-color: white;
+                                        width: 17px;
+                                        height: 10px;
+                                        position: absolute;
+                                        right: 47.2%;
+                                        top: 34.2%;
+                                        border-radius: 50%;
+                                        transform: rotate(23deg);
+                                    "
+                                >
+                                    <div
+                                        id="leftpupil"
+                                        style="
+                                            background-color: black;
+                                            width: 6px;
+                                            height: 6px;
+                                            border-radius: 50%;
+                                            right: 56%;
+                                            top: 36%;
+                                            position: absolute;
+                                        "
+                                    ></div>
+                                </div>
+                                <div
+                                    style="
+                                        background-color: white;
+                                        width: 17px;
+                                        height: 10px;
+                                        position: absolute;
+                                        right: 41.2%;
+                                        top: 39.2%;
+                                        border-radius: 50%;
+                                        transform: rotate(23deg);
+                                    "
+                                >
+                                    <div
+                                        id="rightpupil"
+                                        style="
+                                            background-color: black;
+                                            width: 6px;
+                                            height: 6px;
+                                            border-radius: 50%;
+                                            right: 56%;
+                                            top: 36%;
+                                            position: absolute;
+                                        "
+                                    ></div>
+                                </div>
+                            </div --->
                         </v-img>
                     </v-col>
                 </v-row>
@@ -401,6 +449,10 @@ export default {
             // Runs 5 times, with values of step 0 through 4.
             this.$gsap.set('#review' + step, { rotation: randnum })
         }
+        document.addEventListener('mousemove', this.findeyesplacement)
+    },
+    destroyed() {
+        document.removeEventListener('mousemove', this.findeyesplacement)
     },
     methods: {
         MoveReviewGSAP() {
@@ -410,7 +462,57 @@ export default {
         getRandomArbitrary(min, max) {
             return Math.random() * (max - min) + min
         },
+        findeyesplacement(event) {
+            const array = ['lefteye', 'righteye']
+            for (let index = 0; index < array.length; index++) {
+                const el = array[index]
+                const eye = document.getElementsByClassName(el)[0]
+                const eyerect = eye.getBoundingClientRect()
+                const x =
+                    eyerect.left + window.pageXOffset + eye.offsetWidth / 2
+                const y =
+                    eyerect.top + window.pageYOffset + eye.offsetHeight / 2
+                const rad = Math.atan2(event.pageX - x, event.pageY - y)
+                const rot = rad * (180 / Math.PI) * -1 + 220
+                eye.style.transform = 'rotate(' + rot + 'deg)'
+            }
+        },
     },
 }
 </script>
-<style scoped></style>
+<style scoped>
+.lefteye {
+    background-color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    right: 47.2%;
+    top: 34.2%;
+}
+.lefteye::after {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgb(114, 77, 21);
+    border-radius: 50%;
+    content: ' ';
+}
+.righteye {
+    background-color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    right: 41.2%;
+    top: 38.8%;
+}
+.righteye::after {
+    background: rgb(114, 77, 21);
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    content: ' ';
+    position: absolute;
+}
+</style>

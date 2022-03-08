@@ -10,6 +10,7 @@
             style="
                 backdrop-filter: blur(4px);
                 background-color: rgba(255, 255, 255, 0);
+                z-index: 1
             "
         >
             <v-app-bar-nav-icon
@@ -25,7 +26,7 @@
             <v-toolbar-title
                 id="toolbartitle"
                 class="ma-0 pa-0"
-                style="z-index: -10"
+                style="z-index: -10000; height: 100%"
             >
                 <LayTitle />
             </v-toolbar-title>
@@ -117,7 +118,7 @@ export default {
         },
         handletitle(value) {
             value
-                ? this.$gsap.to('#toolbartitle', { x: -20, duration: 0.3 })
+                ? this.$gsap.to('#toolbartitle', { x: -50, duration: 0.3 })
                 : this.$gsap.to('#toolbartitle', { x: 0, duration: 0.3 })
         },
     },

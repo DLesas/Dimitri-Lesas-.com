@@ -1,5 +1,5 @@
 <template>
-    <canvas id="title" style="position: relative; z-index:-10"></canvas>
+    <canvas id="title" style="position: relative; z-index:-10000"></canvas>
 </template>
 
 <script>
@@ -178,7 +178,7 @@ import Font from '~/static/Fonts/Fira Sans Medium_Regular.json'
                     this.mouseY = (this.screenheight/2) - event.touches[0].clientY;
                 }
                 else {
-                    this.mouseX = (this.screenwidth/2 * (0.01 * this.length)) - (event.clientX * (0.01 * this.length));
+                    this.mouseX = (this.screenwidth/2 * (0.007 * this.length)) - (event.clientX * (0.007 * this.length));
 				    this.mouseY = (this.screenheight/2 * (0.01 * this.length)) - (event.clientY * (0.01 * this.length));
                 }
 
