@@ -37,7 +37,6 @@ export default {
     },
     watch: {
         data(newValue, oldValue) {
-            console.log(newValue)
             if (Object.keys(newValue).length > 0) {
                 this.SetData(newValue, oldValue)
             }
@@ -156,6 +155,9 @@ export default {
         // Make stuff animate on load
         // https://www.amcharts.com/docs/v5/concepts/animations/
         this.chart.appear(1000, 100)
+        if (Object.keys(this.data).length > 0) {
+            this.SetData(this.data, {})
+        }
     },
     methods: {
         SetData(newValue, oldValue) {

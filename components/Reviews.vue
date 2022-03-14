@@ -33,7 +33,7 @@
             </v-card-title>
                 <v-card-text :style="style" class="ma-0 pa-2 px-5 py-5 rounded-xl sortit">
                     <v-row no-gutters align="center" style="color: white">
-                        <v-col class="Fancy">
+                        <v-col class="Fancy" style="white-space: nowrap">
                             {{ name }}
                         </v-col>
                         <v-col>

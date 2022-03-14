@@ -1,5 +1,12 @@
 <template>
-    <v-card id="linegraph" raised :height="400" rounded flat :style="dark ? 'background: #121212' : ''">
+    <v-card
+        id="linegraph"
+        raised
+        :height="400"
+        rounded
+        flat
+        :style="dark ? 'background: #121212' : ''"
+    >
     </v-card>
 </template>
 
@@ -147,6 +154,9 @@ export default {
 
         // Make stuff animate on load
         // https://www.amcharts.com/docs/v5/concepts/animations/
+        if (Object.keys(this.data).length > 0) {
+            this.SetData(this.data, {})
+        }
     },
     methods: {
         async SetData(newValue, oldValue) {

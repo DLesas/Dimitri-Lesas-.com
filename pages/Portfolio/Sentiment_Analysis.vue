@@ -1,36 +1,64 @@
 <template>
-    <v-container>
-        <v-row> </v-row>
-        <v-row no-gutters>
-            <v-col cols="12">
-                <SentLineGraph :data="graphdata"></SentLineGraph
-            ></v-col>
-        </v-row>
-        <v-row justify="space-around">
-            <v-col cols="12" md="5">
-                <SentBarGraph :data="bardata"></SentBarGraph>
-            </v-col>
-            <v-col cols="12" md="5">
-                <SentSunBurstGraph></SentSunBurstGraph>
-            </v-col>
-        </v-row>
-        <v-row no-gutters>
-            <v-col cols="12">
-                <Datatable
-                    :items="data"
-                    :toexclude="[
-                        'id',
-                        'created_at',
-                        'place_id',
-                        'Tags',
-                        'CleanText',
-                        'Targeted @',
-                        'Tweet Url',
-                    ]"
-                ></Datatable>
-            </v-col>
-        </v-row>
-    </v-container>
+    <div style="height: 100%">
+        <v-container v-if="data.length > 0">
+            <Tooltip :steps="steps" name="Sentiment" :daystoreset="1"></Tooltip>
+            <v-row no-gutters>
+                <v-col cols="12">
+                    <SentLineGraph :data="graphdata"></SentLineGraph
+                ></v-col>
+            </v-row>
+            <v-row justify="space-around">
+                <v-col cols="12" md="5">
+                    <SentBarGraph :data="bardata"></SentBarGraph>
+                </v-col>
+                <v-col cols="12" md="5">
+                    <SentSunBurstGraph></SentSunBurstGraph>
+                </v-col>
+            </v-row>
+            <v-row no-gutters>
+                <v-col cols="12">
+                    <Datatable
+                        :items="data"
+                        :toexclude="[
+                            'id',
+                            'created_at',
+                            'place_id',
+                            'Tags',
+                            'CleanText',
+                            'Targeted @',
+                            'Tweet Url',
+                        ]"
+                    ></Datatable>
+                </v-col>
+            </v-row>
+        </v-container>
+        <v-container v-else style="height: 100%">
+            <v-row
+                style="height: 100%; text-align: center;"
+                align="center"
+                justify="center"
+                class="text-subtitle-1 pa-0 ma-0"
+            >
+                <div class="pa-0 ma-0">
+                    <p> Here you can pull Tweets from Twitter and analyse their
+                    sentiment (and more) towards the topic choosen using the
+                    "Get Tweets" button and the various other parameters. <br />
+                    The Code that pulls and analyses the tweets can be found
+                    <a
+                        href="https://github.com/DLesas/Aws-Lambda/blob/master/Deploy/lambda_function.py"
+                        target="_blank"
+                        rel="noreferrer"
+                        >on my github</a
+                    >
+                    and is hosted on AWS as a lambda function. </p>
+                    
+                </div>
+                <div class="pa-0 ma-0">
+                    <p class="text-h6 secondary--text">  Enter Parameters and press "Get Tweets" to get started. </p>
+                </div>
+            </v-row>
+        </v-container>
+    </div>
 </template>
 
 <script>
@@ -42,6 +70,20 @@ export default {
             loading: false,
             TimeSeries: {},
             colorindex: 0,
+            steps: [
+                {
+                    target: 'linegraph',
+                    text: 'This graph shows you the sentiment of the pulled tweets over time',
+                },
+                {
+                    target: 'bargraph',
+                    text: 'This Bargraph represents The average Sentiment score of thee choosen queries',
+                },
+                {
+                    target: 'sunburstgraph',
+                    text: 'Here you will see notifications pop up based on your actions',
+                },
+            ] 
         }
     },
     head() {
@@ -86,18 +128,26 @@ export default {
                 for (const datapoint in this.data) {
                     const relevantdata = this.data[datapoint]
                     if (!(relevantdata.query in final)) {
-                        final[relevantdata.query] = {"query": relevantdata.query, "popularity": []}
+                        final[relevantdata.query] = {
+                            query: relevantdata.query,
+                            popularity: [],
+                        }
                     }
-                    final[relevantdata.query].popularity.push(relevantdata.SentimentScore)
+                    final[relevantdata.query].popularity.push(
+                        relevantdata.SentimentScore
+                    )
                 }
                 for (const queryname in final) {
-                    final[queryname].popularity = final[queryname].popularity.reduce((partialSum, a) => partialSum + a, 0) / final[queryname].popularity.length
+                    final[queryname].popularity =
+                        final[queryname].popularity.reduce(
+                            (partialSum, a) => partialSum + a,
+                            0
+                        ) / final[queryname].popularity.length
                 }
                 for (const queryname in final) {
                     ffinal.push(final[queryname])
                 }
             }
-            console.log(ffinal)
             return ffinal
         },
     },

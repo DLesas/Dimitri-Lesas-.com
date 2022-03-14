@@ -6,7 +6,7 @@
         raised
         rounded
         outlined
-        style="z-index: 10000"
+        style="z-index: 10000000"
     >
         <v-container
             class="pa-2 pb-4"
@@ -70,6 +70,12 @@ export default {
                 return 'default'
             },
         },
+        daystoreset: {
+            type: Number,
+            default() {
+                return 5
+            }
+        }
     },
     data() {
         return {
@@ -135,7 +141,7 @@ export default {
         ClearPopper() {
             this.popper.destroy()
             this.show = false
-            this.$cookies.set(this.name, true, '5D')
+            this.$cookies.set(this.name, true, `${this.daystoreset}D`)
             clearInterval(this.interval)
         },
         getCookie(cookieName) {

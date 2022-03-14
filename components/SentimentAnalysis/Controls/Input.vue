@@ -6,8 +6,8 @@
             v-model="model"
             :items="items"
             hide-selected
-            hint="Maximum of 5 tags, press enter to save tag."
-            label="Tags to search twitter for"
+            hint="Maximum of 5 tags/Words, press enter to save tag/Word."
+            label="Tags/Words to search twitter for"
             multiple
             small-chips
             deletable-chips

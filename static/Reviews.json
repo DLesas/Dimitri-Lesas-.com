@@ -16,18 +16,11 @@
     },
     "Victoria" : {
         "name" : "Victoria Leabeater",
-        "review" : "Great Boyfriend, I don't deserve him but neither do you.",
+        "review" : "Easy to communicate with and always a pleasure to be around",
         "color" : "cyan",
         "color2" : "purple",
-        "job" : "",
+        "job" : "Marketing Manager",
         "link" : "https://www.linkedin.com/in/victoria-leabeater-b2b05b159/"
-    },
-    "Granny" : {
-        "name" : "Granny",
-        "review" : "",
-        "color"  : "rgba(0,0,0,.4)",
-        "color2" : "",
-        "job" : ""
     },
     "Shia" : {
         "name" : "Shia LaBoeuf",
