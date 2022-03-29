@@ -9,13 +9,20 @@
         :style="dark ? 'background: #121212' : ''"
     >
         <div v-if="sentiment" style="height: 100%; overflow-y: hidden">
-            <v-container class="text-h6 primary--text text--darken-4"> Controls </v-container>
+            <v-container class="text-h6 primary--text text--darken-4">
+                Controls
+            </v-container>
             <v-container fluid style="height: 90%">
                 <SentControl></SentControl>
             </v-container>
         </div>
         <div v-else-if="EPA">
-            <v-container slot="prepend" class="text-h6 primary--text text--darken-4"> Contents </v-container>
+            <v-container
+                slot="prepend"
+                class="text-h6 primary--text text--darken-4"
+            >
+                Contents
+            </v-container>
             <v-container>
                 <v-list flat dense class="py-0 my-0">
                     <v-list-group
@@ -58,7 +65,13 @@
             </v-container>
         </div>
         <v-container slot="append" fluid>
-            <v-container fluid class="px-0 mx-0" style="text-decoration: underline;"> Languages Used </v-container>
+            <v-container
+                fluid
+                class="px-0 mx-0"
+                style="text-decoration: underline"
+            >
+                Languages Used
+            </v-container>
             <v-chip-group class="pl-5" column>
                 <v-chip
                     v-for="(Lang, j) in LanguageTags"
@@ -69,7 +82,9 @@
                     {{ Lang }}
                 </v-chip>
             </v-chip-group>
-            <v-container class="px-0 mx-0" style="text-decoration: underline;"> Modules Used </v-container>
+            <v-container class="px-0 mx-0" style="text-decoration: underline">
+                Modules Used
+            </v-container>
             <v-chip-group class="pl-5" column>
                 <v-chip
                     v-for="(Tag, i) in ModuleTags"
@@ -94,6 +109,7 @@ export default {
             Languagecolors: [],
             contents: [],
             sectionObserver: null,
+            mounted: false,
         }
     },
     computed: {
@@ -113,15 +129,14 @@ export default {
             return this.$route.path
         },
         sentiment() {
-            return (this.$route.path === '/Portfolio/Sentiment_Analysis')
+            return this.$route.path === '/Portfolio/Sentiment_Analysis'
         },
         EPA() {
-           return (this.$route.path === '/Portfolio/EPA') 
+            return this.$route.path === '/Portfolio/EPA'
         },
         ModuleTags() {
             const Tags = []
             for (const project in Portfolio) {
-                // eslint-disable-next-line dot-notation
                 if (Portfolio[project].Link === this.route) {
                     for (const skillindex in Portfolio[project].SkillsUsed) {
                         if (
@@ -240,7 +255,9 @@ export default {
         },
         view: {
             handler() {
-                this.updatecontents()
+                if (this.mounted === true) {
+                    this.updatecontents()
+                }
             },
         },
         route: {
@@ -255,9 +272,14 @@ export default {
         /* setTimeout(() => {
             this.observeSections()
         }, 200) */
+        if (this.EPA === true) {
+            setTimeout(() => {
+                this.updatecontents()
+            }, 800)
+        }
         setTimeout(() => {
-            this.updatecontents()
-        }, 800)
+            this.mounted = true
+        }, 1000)
     },
     methods: {
         observeSections() {
@@ -355,12 +377,11 @@ export default {
     color: var(--v-secondary-base);
 }
 ::v-deep .v-chip {
-    color: white !important
+    color: white !important;
 }
-
 </style>
 <style>
 .theme--light.v-chip {
-    color: white !important
+    color: white !important;
 }
 </style>
