@@ -8,13 +8,13 @@
         clipped
         :style="dark ? 'background: #121212' : ''"
     >
-        <div v-if="route = '/Portfolio/Sentiment_Analysis'" style="height: 100%; overflow-y: hidden">
+        <div v-if="sentiment" style="height: 100%; overflow-y: hidden">
             <v-container class="text-h6 primary--text text--darken-4"> Controls </v-container>
             <v-container fluid style="height: 90%">
                 <SentControl></SentControl>
             </v-container>
         </div>
-        <div v-else-if="route === '/Portfolio/EPA'">
+        <div v-else-if="EPA">
             <v-container slot="prepend" class="text-h6 primary--text text--darken-4"> Contents </v-container>
             <v-container>
                 <v-list flat dense class="py-0 my-0">
@@ -111,6 +111,12 @@ export default {
         },
         route() {
             return this.$route.path
+        },
+        sentiment() {
+            return (this.$route.path === '/Portfolio/Sentiment_Analysis')
+        },
+        EPA() {
+           return (this.$route.path === '/Portfolio/EPA') 
         },
         ModuleTags() {
             const Tags = []
