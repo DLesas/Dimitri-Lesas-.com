@@ -4,7 +4,7 @@
         "SideBarIcon": "mdi-twitter",
         "Link": "/Portfolio/Sentiment_Analysis",
         "Type": "Sentiment Analysis",
-        "Img": "",
+        "Img": "/Misc/Sentiment_Analysis.gif",
         "Category": "FullStack",
         "SkillsUsed": [
             "Python",
@@ -25,7 +25,7 @@
         "SideBarIcon": "mdi-horse-human",
         "Link": "/Portfolio/EPA",
         "Type": "Image Recognition",
-        "Img": "",
+        "Img": "/Misc/WorkInProgress.gif",
         "Category": "FullStack",
         "SkillsUsed": [
             "Python",
@@ -46,7 +46,7 @@
         "SideBarIcon": "mdi-account-multiple-outline",
         "Link": "/Portfolio/Customer_Segementation",
         "Type": "Segmetation",
-        "Img": "",
+        "Img": "/Misc/WorkInProgress.gif",
         "Category": "Data Visualisation",
         "SkillsUsed": [
             "Python",

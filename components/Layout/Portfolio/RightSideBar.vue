@@ -8,7 +8,13 @@
         clipped
         :style="dark ? 'background: #121212' : ''"
     >
-        <div v-if="route === '/Portfolio/EPA'">
+        <div v-if="route = '/Portfolio/Sentiment_Analysis'" style="height: 100%; overflow-y: hidden">
+            <v-container class="text-h6 primary--text text--darken-4"> Controls </v-container>
+            <v-container fluid style="height: 90%">
+                <SentControl></SentControl>
+            </v-container>
+        </div>
+        <div v-else-if="route === '/Portfolio/EPA'">
             <v-container slot="prepend" class="text-h6 primary--text text--darken-4"> Contents </v-container>
             <v-container>
                 <v-list flat dense class="py-0 my-0">
@@ -51,13 +57,7 @@
                 </v-list>
             </v-container>
         </div>
-        <div v-else-if="route = '/Portfolio/Sentiment_Analysis'" style="height: 100%; overflow-y: hidden">
-            <v-container class="text-h6 primary--text text--darken-4"> Controls </v-container>
-            <v-container fluid style="height: 90%">
-                <SentControl></SentControl>
-            </v-container>
-        </div>
-        <v-container fluid slot="append">
+        <v-container slot="append" fluid>
             <v-container fluid class="px-0 mx-0" style="text-decoration: underline;"> Languages Used </v-container>
             <v-chip-group class="pl-5" column>
                 <v-chip

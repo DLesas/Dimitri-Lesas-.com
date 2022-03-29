@@ -5,11 +5,11 @@
         class="mx-auto" 
       >
         <v-row no-gutters>
-            <v-col cols="7">
-                <v-img src="https://cdn.vuetifyjs.com/images/cards/forest-art.jpg" height="200">
+            <v-col cols="12">
+                <v-img :src="img" height="150">
                 </v-img>
             </v-col>
-            <v-col cols="5">
+            <v-col cols="12">
                 <v-container fluid class="pa-0 ma-0" style="height:100%">
                     <v-row justify="centre" align="centre" no-gutters style="height: 100%;">
                         <v-col cols="12">

@@ -2,59 +2,79 @@
     <div style="height: 100%">
         <v-container v-if="data.length > 0">
             <Tooltip :steps="steps" name="Sentiment" :daystoreset="1"></Tooltip>
-            <v-row no-gutters>
-                <v-col cols="12">
-                    <SentLineGraph :data="graphdata"></SentLineGraph
-                ></v-col>
+            <v-row no-gutters justify="space-around">
+                <v-col cols="12" md="9">
+                    <v-card
+                        id="linegraphcontainer"
+                        rounded="xl"
+                        :style="dark ? 'background: #121212' : ''"
+                    >
+                        <SentLineGraphTest
+                            :data="graphdata"
+                        ></SentLineGraphTest>
+                    </v-card>
+                </v-col>
             </v-row>
             <v-row justify="space-around">
-                <v-col cols="12" md="5">
-                    <SentBarGraph :data="bardata"></SentBarGraph>
+                <v-col cols="12" md="6" >
+                    <v-card rounded="xl" :style="dark ? 'background: #121212' : ''">
+                        <SentBarGraphTest :data="bardata"></SentBarGraphTest>
+                    </v-card>
                 </v-col>
-                <v-col cols="12" md="5">
-                    <SentSunBurstGraph></SentSunBurstGraph>
+                <v-col cols="12" md="6" >
+                    <v-card rounded="xl" :style="dark ? 'background: #121212' : ''">
+                        <SentBarGraphTest id="MentionBarGraph" :data="bardata"></SentBarGraphTest>
+                    </v-card>
                 </v-col>
             </v-row>
-            <v-row no-gutters>
+            <v-row>
                 <v-col cols="12">
-                    <Datatable
-                        :items="data"
-                        :toexclude="[
-                            'id',
-                            'created_at',
-                            'place_id',
-                            'Tags',
-                            'CleanText',
-                            'Targeted @',
-                            'Tweet Url',
-                        ]"
-                    ></Datatable>
+                    <v-card rounded="xl">
+                        <Datatable
+                            :items="data"
+                            :toexclude="[
+                                'id',
+                                'created_at',
+                                'place_id',
+                                'Tags',
+                                'CleanText',
+                                'Targeted @',
+                                'Tweet Url',
+                            ]"
+                        ></Datatable>
+                    </v-card>
                 </v-col>
             </v-row>
         </v-container>
         <v-container v-else style="height: 100%">
             <v-row
-                style="height: 100%; text-align: center;"
+                style="height: 100%; text-align: center"
                 align="center"
                 justify="center"
                 class="text-subtitle-1 pa-0 ma-0"
             >
                 <div class="pa-0 ma-0">
-                    <p> Here you can pull Tweets from Twitter and analyse their
-                    sentiment (and more) towards the topic choosen using the
-                    "Get Tweets" button and the various other parameters. <br />
-                    The Code that pulls and analyses the tweets can be found
-                    <a
-                        href="https://github.com/DLesas/Aws-Lambda/blob/master/Deploy/lambda_function.py"
-                        target="_blank"
-                        rel="noreferrer"
-                        >on my github</a
-                    >
-                    and is hosted on AWS as a lambda function. </p>
-                    
+                    <p>
+                        Here you can pull the most recent Tweets from Twitter
+                        and analyse their sentiment (and more) towards the topic
+                        choosen using the "Get Tweets" button and the various
+                        other parameters.
+                        <br />
+                        The Code that pulls and analyses the tweets can be found
+                        <a
+                            href="https://github.com/DLesas/Aws-Lambda/blob/master/Deploy/lambda_function.py"
+                            target="_blank"
+                            rel="noreferrer"
+                            >on my github</a
+                        >
+                        and is hosted on AWS as a lambda function written in
+                        python.
+                    </p>
                 </div>
                 <div class="pa-0 ma-0">
-                    <p class="text-h6 secondary--text">  Enter Parameters and press "Get Tweets" to get started. </p>
+                    <p class="text-h6 secondary--text">
+                        Enter Parameters and press "Get Tweets" to get started.
+                    </p>
                 </div>
             </v-row>
         </v-container>
@@ -72,18 +92,18 @@ export default {
             colorindex: 0,
             steps: [
                 {
-                    target: 'linegraph',
-                    text: 'This graph shows you the sentiment of the pulled tweets over time',
+                    target: 'linegraphcontainer',
+                    text: 'This graph shows you the sentiment of the pulled tweets over time (you can pan and zoom using the mouse)',
                 },
                 {
                     target: 'bargraph',
-                    text: 'This Bargraph represents The average Sentiment score of thee choosen queries',
+                    text: 'This Bar graph represents The average Sentiment score of the choosen queries',
                 },
                 {
-                    target: 'sunburstgraph',
-                    text: 'Here you will see notifications pop up based on your actions',
+                    target: 'MentionBarGraph',
+                    text: 'This Bar graph represents The mentions every minute (popularity) of the choosen queries',
                 },
-            ] 
+            ],
         }
     },
     head() {
@@ -100,6 +120,9 @@ export default {
         }
     },
     computed: {
+        dark() {
+            return this.$vuetify.theme.dark
+        },
         // current data is in [{x....}]
         // need to set data as {x : [{'sentiment': y, 'date': x}]}
         graphdata() {
@@ -110,10 +133,12 @@ export default {
                     if (!(relevantdata.query in final)) {
                         final[relevantdata.query] = []
                     }
-                    final[relevantdata.query].push({
-                        sentiment: relevantdata.SentimentScore,
-                        date: relevantdata.created_at,
-                    })
+                    if (relevantdata.SentimentScore !== null) {
+                        final[relevantdata.query].push({
+                            y: relevantdata.SentimentScore,
+                            x: relevantdata.created_at,
+                        })
+                    }
                 }
                 return final
             } else {
@@ -130,19 +155,19 @@ export default {
                     if (!(relevantdata.query in final)) {
                         final[relevantdata.query] = {
                             query: relevantdata.query,
-                            popularity: [],
+                            average: [],
                         }
                     }
-                    final[relevantdata.query].popularity.push(
+                    final[relevantdata.query].average.push(
                         relevantdata.SentimentScore
                     )
                 }
                 for (const queryname in final) {
-                    final[queryname].popularity =
-                        final[queryname].popularity.reduce(
+                    final[queryname].average =
+                        final[queryname].average.reduce(
                             (partialSum, a) => partialSum + a,
                             0
-                        ) / final[queryname].popularity.length
+                        ) / final[queryname].average.length
                 }
                 for (const queryname in final) {
                     ffinal.push(final[queryname])
@@ -169,13 +194,13 @@ export default {
                 data[datapoint].created_at = new Date(
                     data[datapoint].created_at
                 )
+
                 data[datapoint].date = this.cleandates(
                     data[datapoint].created_at
                 )
                 data[datapoint].query = query
-                data[datapoint].created_at = Date.parse(
-                    data[datapoint].created_at
-                )
+                data[datapoint].created_at =
+                    data[datapoint].created_at.toISOString()
                 data[datapoint].color =
                     this.$vuetify.theme.currentTheme.analogic_complement[
                         this.colorindex

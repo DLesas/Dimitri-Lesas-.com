@@ -33,12 +33,15 @@ export default {
         '~/plugins/vueTyper.client.js',
         '~/plugins/amchart.client.js',
         '~/plugins/amcharttheme.client.js',
-        '~/plugins/plotly.client.js',
+        '~/plugins/amcharttheme.client.js',
+        '~/plugins/Chart.client.js',
         '~/plugins/Vue-pdf.client.js',
         '~/plugins/three.client.js',
         '~/plugins/Simplex.js',
         '~/plugins/Img-Comparison.client.js',
-        '~/plugins/Vue-Cookies.client.js'
+        '~/plugins/Vue-Cookies.client.js',
+        '~/plugins/ZoomPlugin.client.js',
+        '~/plugins/Regression.js',
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components

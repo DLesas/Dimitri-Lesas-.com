@@ -49,7 +49,9 @@ export default {
             this.GetDataReady()
         },
     },
-    mounted() {},
+    mounted() {
+        this.GetDataReady()
+    },
     methods: {
         GetDataReady() {
             let count = 0
