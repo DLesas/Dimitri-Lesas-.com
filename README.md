@@ -1,4 +1,4 @@
-# Dimitri Lesas .com
+# DimitriLesas.com
 
 > **Note:** This project was built as a personal learning portfolio 4 years ago (2019-2020) and is no longer maintained. Some demos (e.g., Twitter analytics) are non-functional due to API changes. It remains here as a reference to my early work with JavaScript, Vue, and Nuxt.js.
 
